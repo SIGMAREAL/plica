@@ -1,0 +1,389 @@
+[
+  {
+    "id": "feature-flags",
+    "name": "Feature Flags",
+    "aliases": [
+      "Feature Flag",
+      "Feature flags",
+      "feature flag",
+      "feature flags"
+    ],
+    "zh": "特性开关",
+    "definition": "通过配置而非重新发布控制某项能力是否可用。",
+    "category": "release"
+  },
+  {
+    "id": "progressive-rollout",
+    "name": "Progressive Rollout",
+    "aliases": [
+      "Rollout",
+      "Rollouts",
+      "rollout",
+      "灰度发布"
+    ],
+    "zh": "渐进式发布",
+    "definition": "逐步扩大新版本或功能的覆盖范围，并结合指标触发继续、暂停或回滚。",
+    "category": "release"
+  },
+  {
+    "id": "ab-testing",
+    "name": "A/B Testing",
+    "aliases": [
+      "A/B",
+      "A/B Testing",
+      "实验分流",
+      "A/B test"
+    ],
+    "zh": "对照实验",
+    "definition": "将流量分配到不同实验条件，用测量结果评估产品或系统变化。",
+    "category": "release"
+  },
+  {
+    "id": "transcoding",
+    "name": "Transcoding",
+    "aliases": [
+      "Transcoding",
+      "transcoding",
+      "转码"
+    ],
+    "zh": "转码",
+    "definition": "将媒体数据从一种编码、质量或封装形式转换为另一种形式。",
+    "category": "video"
+  },
+  {
+    "id": "cdn",
+    "name": "CDN",
+    "aliases": [
+      "CDN",
+      "Content Delivery Network"
+    ],
+    "zh": "内容分发网络",
+    "definition": "通过地理分布的缓存与分发节点，让内容接近终端用户。",
+    "category": "video"
+  },
+  {
+    "id": "erasure-coding",
+    "name": "Erasure Coding",
+    "aliases": [
+      "Erasure coding",
+      "erasure coding",
+      "纠删码"
+    ],
+    "zh": "纠删码",
+    "definition": "使用冗余编码分片恢复丢失的数据，在容错与空间效率之间做权衡。",
+    "category": "storage"
+  },
+  {
+    "id": "immutable-storage",
+    "name": "Immutable Storage",
+    "aliases": [
+      "Immutable blocks",
+      "Immutable storage",
+      "immutable",
+      "不可变块",
+      "不可变存储"
+    ],
+    "zh": "不可变存储",
+    "definition": "写入后不原位改写数据内容，变更由新对象和元数据层表达。",
+    "category": "storage"
+  },
+  {
+    "id": "compaction",
+    "name": "Compaction",
+    "aliases": [
+      "Compaction",
+      "compaction"
+    ],
+    "zh": "压实",
+    "definition": "将分散的有效数据重新组织，回收空间或优化读取布局。",
+    "category": "storage"
+  },
+  {
+    "id": "sharding",
+    "name": "Sharding",
+    "aliases": [
+      "Sharding",
+      "sharding",
+      "Index sharding",
+      "分片"
+    ],
+    "zh": "分片",
+    "definition": "将数据或索引分配到多个分区，平衡容量、吞吐和故障域。",
+    "category": "storage"
+  },
+  {
+    "id": "websocket",
+    "name": "WebSocket",
+    "aliases": [
+      "WebSocket",
+      "WebSockets",
+      "Websocket"
+    ],
+    "zh": "双向连接",
+    "definition": "客户端和服务端保持持久双向通信，用于协作与实时通知等场景。",
+    "category": "collaboration"
+  },
+  {
+    "id": "crdt",
+    "name": "CRDT",
+    "aliases": [
+      "CRDT",
+      "CRDTs"
+    ],
+    "zh": "无冲突复制数据类型",
+    "definition": "能在特定条件下让多副本并发更新最终收敛的一类数据结构。",
+    "category": "collaboration"
+  },
+  {
+    "id": "conflict-resolution",
+    "name": "Conflict Resolution",
+    "aliases": [
+      "Conflict resolution",
+      "conflict resolution",
+      "冲突解决"
+    ],
+    "zh": "冲突解决",
+    "definition": "并发修改影响同一状态时，系统如何定义一致且可解释的结果。",
+    "category": "collaboration"
+  },
+  {
+    "id": "retrieval",
+    "name": "Retrieval",
+    "aliases": [
+      "Retrieval",
+      "retrieval",
+      "候选召回"
+    ],
+    "zh": "召回",
+    "definition": "从大规模候选集合中筛选较小候选池，再交由更复杂的排序处理。",
+    "category": "recommendation"
+  },
+  {
+    "id": "model-serving",
+    "name": "Model Serving",
+    "aliases": [
+      "Model serving",
+      "model serving",
+      "在线推理"
+    ],
+    "zh": "模型服务",
+    "definition": "将训练好的模型作为在线服务部署，处理延迟、资源分配和版本管理。",
+    "category": "recommendation"
+  },
+  {
+    "id": "online-learning",
+    "name": "Online Learning",
+    "aliases": [
+      "Online training",
+      "online training",
+      "在线学习",
+      "在线训练"
+    ],
+    "zh": "在线学习",
+    "definition": "持续吸收新的反馈信号，使模型更快适应变化；同时带来稳定性挑战。",
+    "category": "recommendation"
+  },
+  {
+    "id": "vmaf",
+    "name": "VMAF",
+    "aliases": [
+      "VMAF"
+    ],
+    "zh": "视频多方法评价融合",
+    "definition": "Netflix 推动开发的感知视频质量评价指标，用于比较编码方案的观看质量。",
+    "category": "video"
+  },
+  {
+    "id": "consensus",
+    "name": "Consensus",
+    "aliases": [
+      "Consensus",
+      "consensus",
+      "分布式共识"
+    ],
+    "zh": "共识",
+    "definition": "使多个节点在故障和并发条件下就某个状态或操作顺序达成一致。",
+    "category": "storage"
+  },
+  {
+    "id": "harness",
+    "name": "Agent Harness",
+    "aliases": [
+      "Harness",
+      "harness"
+    ],
+    "zh": "Agent 执行框架",
+    "definition": "围绕 Agent 的工具、执行环境、反馈与验证建立可管理的工作流程。",
+    "category": "developer"
+  },
+  {
+    "id": "sync-engine",
+    "name": "Sync Engine",
+    "aliases": [
+      "File Sync"
+    ],
+    "zh": "同步引擎",
+    "definition": "维持本地文件树和远端状态一致，并在异常后恢复的客户端/服务端协作机制。",
+    "category": "storage"
+  },
+  {
+    "id": "predictive-caching",
+    "name": "Predictive Caching",
+    "aliases": [
+      "Popularity Forecasting"
+    ],
+    "zh": "预测式缓存",
+    "definition": "提前根据地域、历史和预测热度，把可能访问的内容放置在更近的缓存中。",
+    "category": "video"
+  },
+  {
+    "id": "multi-stage-ranking",
+    "name": "Multi-stage Ranking",
+    "aliases": [
+      "Cascade Ranking"
+    ],
+    "zh": "多阶段排序",
+    "definition": "通过逐级筛选候选并分配不同计算预算，在召回质量与请求延迟之间做取舍。",
+    "category": "recommendation"
+  },
+  {
+    "id": "jsbridge",
+    "name": "JSBridge",
+    "aliases": [
+      "JS Bridge"
+    ],
+    "zh": "JavaScript 桥接",
+    "definition": "在受控 JS 运行环境与原生宿主能力之间传递消息与调用结果的接口层。",
+    "category": "runtime"
+  },
+  {
+    "id": "dual-write",
+    "name": "Dual Write",
+    "aliases": [
+      "Dual Writing"
+    ],
+    "zh": "双写",
+    "definition": "迁移期间将同一业务变化写入新旧两个数据系统，需配合校验和故障处理。",
+    "category": "storage"
+  },
+  {
+    "id": "shadow-read",
+    "name": "Shadow Read",
+    "aliases": [
+      "Shadow Reads"
+    ],
+    "zh": "影子读",
+    "definition": "对新旧读路径执行并行比对，但只把已验证的主路径结果返回给用户。",
+    "category": "storage"
+  },
+  {
+    "id": "immutable-ledger",
+    "name": "Immutable Ledger",
+    "aliases": [
+      "Append-only Log"
+    ],
+    "zh": "不可变账本",
+    "definition": "以仅追加方式保留金融事件与状态变迁，用于审计和重新构建历史状态。",
+    "category": "finance"
+  },
+  {
+    "id": "double-entry",
+    "name": "Double-entry Bookkeeping",
+    "aliases": [
+      "Double Entry"
+    ],
+    "zh": "复式记账",
+    "definition": "每次资金移动需要对应借贷记录的会计不变量，用来验证整体余额守恒。",
+    "category": "finance"
+  },
+  {
+    "id": "durable-objects",
+    "name": "Durable Objects",
+    "aliases": [
+      "Durable Object"
+    ],
+    "zh": "持久对象",
+    "definition": "Cloudflare 提供的具位置和状态属性的协调原语，用于聚合共享状态和隔离资源。",
+    "category": "traffic"
+  },
+  {
+    "id": "release-state-machine",
+    "name": "Release State Machine",
+    "aliases": [
+      "Release State"
+    ],
+    "zh": "发布状态机",
+    "definition": "用有限状态、守卫条件和动作编排应用发版过程，避免状态转换失序。",
+    "category": "release"
+  },
+  {
+    "id": "git-ref",
+    "name": "Git Reference",
+    "aliases": [
+      "Git Ref"
+    ],
+    "zh": "Git 引用",
+    "definition": "分支或标签指向仓库对象的命名引用；热点分支并发更新需要保证一致性。",
+    "category": "developer"
+  },
+  {
+    "id": "capacity-planning",
+    "name": "Capacity Planning",
+    "aliases": [
+      "Capacity Planning"
+    ],
+    "zh": "容量规划",
+    "definition": "估计系统在峰值、增长与故障期间需要的计算、队列和存储能力。",
+    "category": "traffic"
+  },
+  {
+    "id": "graph-storage",
+    "name": "Graph Storage",
+    "aliases": [
+      "Association Store"
+    ],
+    "zh": "图关系存储",
+    "definition": "面向实体及其关联关系的存取模型，常为频繁邻接查询单独优化。",
+    "category": "storage"
+  },
+  {
+    "id": "data-ingestion",
+    "name": "Data Ingestion",
+    "aliases": [
+      "Ingestion Pipeline"
+    ],
+    "zh": "数据摄入",
+    "definition": "将操作系统或业务数据库的变更持续导入下游分析、训练或报告系统。",
+    "category": "storage"
+  },
+  {
+    "id": "metadata-overhead",
+    "name": "Metadata Overhead",
+    "aliases": [
+      "Inode Metadata"
+    ],
+    "zh": "元数据开销",
+    "definition": "文件的目录、索引、inode 等信息占用 I/O 和缓存资源，可能成为存储性能瓶颈。",
+    "category": "storage"
+  },
+  {
+    "id": "llm-inference",
+    "name": "LLM Inference",
+    "aliases": [
+      "Model Inference"
+    ],
+    "zh": "大模型推理服务",
+    "definition": "在在线时延和成本约束下执行模型推断并协调批处理、采样与 GPU 资源。",
+    "category": "recommendation"
+  },
+  {
+    "id": "aggregation-api",
+    "name": "Aggregation API",
+    "aliases": [
+      "Aggregate API"
+    ],
+    "zh": "聚合接口",
+    "definition": "API 直接返回汇总统计而不是大量原始事件记录，降低请求成本与数据泄漏风险。",
+    "category": "search"
+  }
+]

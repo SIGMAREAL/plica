@@ -1,0 +1,302 @@
+[
+  {
+    "term": "feature-flags",
+    "case": "uber-ab-platform",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "feature-flags",
+    "case": "uber-flipr",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "progressive-rollout",
+    "case": "uber-flipr",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "ab-testing",
+    "case": "uber-ab-platform",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "ab-testing",
+    "case": "uber-flipr",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "transcoding",
+    "case": "youtube-video-infrastructure",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "transcoding",
+    "case": "netflix-shot-based-encoding",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "erasure-coding",
+    "case": "dropbox-magic-pocket",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "immutable-storage",
+    "case": "dropbox-magic-pocket",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "immutable-storage",
+    "case": "dropbox-storage-compaction",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "compaction",
+    "case": "dropbox-storage-compaction",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "sharding",
+    "case": "discord-trillion-message-storage",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "sharding",
+    "case": "discord-message-indexing",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "websocket",
+    "case": "figma-multiplayer",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "conflict-resolution",
+    "case": "figma-multiplayer",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "retrieval",
+    "case": "instagram-recommendations-1000",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "model-serving",
+    "case": "instagram-recommendations-1000",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "model-serving",
+    "case": "spotify-two-stacks",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "online-learning",
+    "case": "bytedance-monolith",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "vmaf",
+    "case": "netflix-shot-based-encoding",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "harness",
+    "case": "openai-harness-engineering",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "sync-engine",
+    "case": "dropbox-nucleus-sync",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "conflict-resolution",
+    "case": "dropbox-nucleus-sync",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "feature-flags",
+    "case": "spotify-experimentation-platform",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "ab-testing",
+    "case": "spotify-experimentation-platform",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "progressive-rollout",
+    "case": "spotify-experimentation-platform",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "predictive-caching",
+    "case": "netflix-open-connect-popularity",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "cdn",
+    "case": "netflix-open-connect-popularity",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "retrieval",
+    "case": "instagram-explore-ranking",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "model-serving",
+    "case": "instagram-explore-ranking",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "multi-stage-ranking",
+    "case": "instagram-explore-ranking",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "jsbridge",
+    "case": "wechat-miniprogram-web-runtime",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "git-ref",
+    "case": "github-git-agent-scale",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "release-state-machine",
+    "case": "spotify-app-release-dashboard",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "progressive-rollout",
+    "case": "spotify-app-release-dashboard",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "capacity-planning",
+    "case": "spotify-quality-higher-velocity",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "release-state-machine",
+    "case": "spotify-quality-higher-velocity",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "dual-write",
+    "case": "stripe-online-migrations",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "shadow-read",
+    "case": "stripe-online-migrations",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "immutable-ledger",
+    "case": "stripe-ledger-money-movement",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "double-entry",
+    "case": "stripe-ledger-money-movement",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "durable-objects",
+    "case": "cloudflare-waiting-room",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "capacity-planning",
+    "case": "cloudflare-waiting-room",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "graph-storage",
+    "case": "meta-tao-social-graph",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "sharding",
+    "case": "meta-tao-social-graph",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "data-ingestion",
+    "case": "meta-data-ingestion-migration",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "metadata-overhead",
+    "case": "meta-haystack-photos",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "llm-inference",
+    "case": "spotify-generative-inference",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "model-serving",
+    "case": "spotify-generative-inference",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  },
+  {
+    "term": "aggregation-api",
+    "case": "github-star-history-api",
+    "relation": "explains_term",
+    "review_status": "editorial"
+  }
+]

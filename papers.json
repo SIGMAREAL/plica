@@ -1,0 +1,53 @@
+[
+  {
+    "id": "monolith-online-recommendation",
+    "title": "Monolith: Real Time Recommendation System With Collisionless Embedding Table",
+    "authors": "Zhuoran Liu et al.",
+    "year": "2022",
+    "arxiv": "2209.07663",
+    "category": "recommendation",
+    "question": "实时反馈能否直接改变在线推荐模型？",
+    "summary": "研究专用于在线训练的推荐系统，提出无碰撞 Embedding 表、过期管理与容错架构；论文明确提到在 BytePlus Recommend 应用。",
+    "takeaways": [
+      "高维稀疏特征需要独立于通用密集张量框架的设计考量。",
+      "频率过滤、Embedding 过期与在线训练共同构成工程权衡。",
+      "实时更新与系统可用性之间需要明确取舍。"
+    ],
+    "related_case": "bytedance-monolith",
+    "status": "研究论文；文中明确报告 BytePlus Recommend 落地，不代表抖音现行线上细节"
+  },
+  {
+    "id": "wide-deep-recommender",
+    "title": "Wide & Deep Learning for Recommender Systems",
+    "authors": "Heng-Tze Cheng et al.",
+    "year": "2016",
+    "arxiv": "1606.07792",
+    "category": "recommendation",
+    "question": "推荐系统为什么同时需要记忆和泛化？",
+    "summary": "提出 Wide & Deep 联合训练方案，并公开了在 Google Play 应用推荐中的实验背景。",
+    "takeaways": [
+      "线性记忆组件可学习频繁共同出现的特征组合。",
+      "神经网络组件将稀疏特征映射到 Embedding 空间，以处理未见组合。",
+      "需要在推荐相关性、模型容量与在线服务成本间权衡。"
+    ],
+    "related_case": "instagram-recommendations-1000",
+    "status": "论文包含 Google Play 的实验报告；关联 Instagram 仅用于比较推荐领域，不代表后者采用该方案"
+  },
+  {
+    "id": "paxos-vs-raft",
+    "title": "Paxos vs Raft: Have we reached consensus on distributed consensus?",
+    "authors": "Heidi Howard, Richard Mortier",
+    "year": "2020",
+    "arxiv": "2004.05074",
+    "category": "storage",
+    "question": "Raft 和 Paxos 真正不同的设计前提是什么？",
+    "summary": "比较两个经典分布式共识协议，分析领导者选择与日志约束如何影响可理解性和工程实现。",
+    "takeaways": [
+      "共识协议要区分安全性与活性目标。",
+      "论文突出二者的领导者选择策略差异。",
+      "不能把协议上的分析直接等同于特定产品的生产实践。"
+    ],
+    "related_case": "google-file-system",
+    "status": "理论比较；关联 GFS 仅用于同领域延伸阅读，不代表 GFS 使用 Raft 或 Paxos"
+  }
+]

@@ -1,0 +1,2 @@
+# Test-only dependency. The published static site has no Python runtime dependencies.
+playwright>=1.48,<2
