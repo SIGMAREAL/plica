@@ -2,6 +2,8 @@
 
 **Inside the systems we use.** An independent, sourced knowledge base about real-world software architecture, engineering decisions, research and trade-offs.
 
+需求交接与成果查看：[Ithaca 交接指南](docs/ithaca-handoff.md)（ChatGPT 网页需求确认、轮次阶段及最新已部署成果）。
+
 ## Frontend / backend boundary
 
 ```text
