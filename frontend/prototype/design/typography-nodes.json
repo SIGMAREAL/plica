@@ -1,0 +1,498 @@
+{
+  "fileKey": "HN365jMHk14lQd2YAUSn4y",
+  "sessionId": "99248d61-3af0-44c9-92bc-143aa4cdcd15",
+  "updated": "2026-10-24",
+  "scope": "Replace Inter Latin typography with DM Sans; retain Chinese Noto Sans SC and existing layout/copy",
+  "font": {
+    "latin": "DM Sans Variable",
+    "figmaFamily": "DM Sans",
+    "chinese": "Noto Sans SC Variable",
+    "weightRange": [
+      100,
+      1000
+    ],
+    "opticalSize": 14,
+    "source": "https://fonts.google.com/specimen/DM+Sans",
+    "license": "OFL-1.1",
+    "notice": "public/fonts/DM-Sans-LICENSE.txt"
+  },
+  "styles": [
+    {
+      "id": "S:1d65648e7bba06de8229bf023b2c26cc55af36e1,",
+      "name": "Plica/DM Sans/27/Semi Bold"
+    },
+    {
+      "id": "S:3c0980a740d339389733d8e80c38bef1e617d086,",
+      "name": "Plica/DM Sans/64/Regular"
+    },
+    {
+      "id": "S:6ab94410c0187e458e63eaa65227defafc172f7c,",
+      "name": "Plica/DM Sans/13/Regular"
+    },
+    {
+      "id": "S:621eaef5c80f5b803e7339b92d0bc19b294f09da,",
+      "name": "Plica/DM Sans/11/Regular"
+    },
+    {
+      "id": "S:4fd2e9ca95146914c3b030b06f49720ba448e6d3,",
+      "name": "Plica/DM Sans/9/Regular"
+    },
+    {
+      "id": "S:757a7e08c820358647942cb00bf7e6f2b8249b83,",
+      "name": "Plica/DM Sans/27/Regular"
+    },
+    {
+      "id": "S:6cdfa712189cccebc393075cb8da25396c9a4294,",
+      "name": "Plica/DM Sans/12/Regular"
+    },
+    {
+      "id": "S:f4ffb739047326c3db6650c3065918b931c1d2db,",
+      "name": "Plica/DM Sans/11/Medium"
+    },
+    {
+      "id": "S:a5bb6df335ecd3aa9d8fcabdf15d6c6430141da3,",
+      "name": "Plica/DM Sans/8/Regular"
+    },
+    {
+      "id": "S:89a454ed1fe93e3c654cbbab047e024ca10a7cd7,",
+      "name": "Plica/DM Sans/104/Medium"
+    },
+    {
+      "id": "S:ff2870ee358efebf63b21f381c39247f32286572,",
+      "name": "Plica/DM Sans/7/Regular"
+    },
+    {
+      "id": "S:63ca27ba01b05dd6805dc503508242cb57704407,",
+      "name": "Plica/DM Sans/17/Medium"
+    },
+    {
+      "id": "S:9e62fce8f977b91ae410bb55346d57baadec37f7,",
+      "name": "Plica/DM Sans/10/Regular"
+    },
+    {
+      "id": "S:9b60d70e7d5d78ba2a13ed3cc354b6e226d743ad,",
+      "name": "Plica/DM Sans/17/Regular"
+    },
+    {
+      "id": "S:6482dd015479da632481e4a2f54ac0a6b11004af,",
+      "name": "Plica/DM Sans/24/Regular"
+    },
+    {
+      "id": "S:bcf9c207fa04b5778168a6b7e16df8243106c672,",
+      "name": "Plica/DM Sans/19/Regular"
+    },
+    {
+      "id": "S:90f2108f9ed00d77477da4905ecd0ed09067a05d,",
+      "name": "Plica/DM Sans/72/Medium"
+    },
+    {
+      "id": "S:5cec9bf5ffe3dc8e33e4c1b14887f5ab957f2716,",
+      "name": "Plica/DM Sans/9/Medium"
+    },
+    {
+      "id": "S:200895c4c3d4a12a6ee4205c8f2119647c2fbc9f,",
+      "name": "Plica/DM Sans/6/Regular"
+    },
+    {
+      "id": "S:b5deaa9a14e0e9124bbdf438b107175c778feccf,",
+      "name": "Plica UI/DM Sans/12/Regular"
+    },
+    {
+      "id": "S:844fa312b25b7df4100847d818759ac77204e4b4,",
+      "name": "Plica UI/DM Sans/10/Regular"
+    },
+    {
+      "id": "S:a7e0d111e78a1af54941b330278f2b7f3c456a2f,",
+      "name": "Plica UI/DM Sans/14/Regular"
+    },
+    {
+      "id": "S:8a215f59bf006b9b4b51ea976e8a05c4b8d1b3eb,",
+      "name": "Plica UI/DM Sans/16/Regular"
+    },
+    {
+      "id": "S:4764f429b7f0a76084b5008ae1dd563553a3d0ec,",
+      "name": "Plica UI/DM Sans/18/Regular"
+    },
+    {
+      "id": "S:bdfd27d605c7f7b87cd1ec8c37277163de65f7d0,",
+      "name": "Plica UI/DM Sans/14/Medium"
+    },
+    {
+      "id": "S:bd9cbe8e1161ef587fb290f47948261f14b7ec31,",
+      "name": "Plica UI/DM Sans/16/Medium"
+    },
+    {
+      "id": "S:bc01309a6a203bc0c7ba7dcf6633334c19230dd9,",
+      "name": "Plica UI/DM Sans/21/Medium"
+    },
+    {
+      "id": "S:d6bac2de1e6091ace238258e736f1f09d86c4c6f,",
+      "name": "Plica UI/DM Sans/22/Medium"
+    },
+    {
+      "id": "S:1b0a18a2ddfe389348ccaf71ef8abb3a0b834843,",
+      "name": "Plica UI/DM Sans/11/Regular"
+    },
+    {
+      "id": "S:153d23b12c085f1ec8de13be675338d3623c7fa7,",
+      "name": "Plica UI/DM Sans/12/Medium"
+    },
+    {
+      "id": "S:a1d1d830693f466bc390a14e7c4ab766e74f2d17,",
+      "name": "Plica UI/DM Sans/28/Medium"
+    },
+    {
+      "id": "S:99a547843fc7dbc264580bf2013fb06d229f1896,",
+      "name": "Plica UI/DM Sans/10/Medium"
+    },
+    {
+      "id": "S:c42a47355b7aaa755c9ef3b0b606adead7de496c,",
+      "name": "Plica UI/DM Sans/25/Medium"
+    },
+    {
+      "id": "S:d7aa782a1d885e6cd1e601cc38239e9061ace168,",
+      "name": "Plica UI/DM Sans/18/Medium"
+    },
+    {
+      "id": "S:6f73e7bf78a0aafae151586d98fab126946b47d6,",
+      "name": "Plica UI/DM Sans/13/Regular"
+    },
+    {
+      "id": "S:4947ed45a96cada2071fcd230dd7bbfe6b784f58,",
+      "name": "Plica UI/DM Sans/9/Regular"
+    },
+    {
+      "id": "S:782048fe9a23e84d6761b9c8c861be0f9fbcd4c7,",
+      "name": "Plica Portal/DM Sans/16/650/26/0"
+    },
+    {
+      "id": "S:1e946b67377976fda54c7b54e69aec9ddb5fe61a,",
+      "name": "Plica Portal/DM Sans/22/650/35/-0.7"
+    },
+    {
+      "id": "S:f8deda6d1938bac1bf73d889dfb25c0575f782d6,",
+      "name": "Plica Portal/DM Sans/20/500/32/0"
+    },
+    {
+      "id": "S:99d7f95beb7c3c04472b2f7f22f6d4338c162caf,",
+      "name": "Plica Portal/DM Sans/14/600/22.400000000000002/0"
+    },
+    {
+      "id": "S:d2f52387140028d1734878104307f16dab668dce,",
+      "name": "Plica Portal/DM Sans/18/500/28.8/0"
+    },
+    {
+      "id": "S:5042a345012f07cc58d8b71a10e57b76405f1a4b,",
+      "name": "Plica Portal/DM Sans/13/600/20.8/0"
+    },
+    {
+      "id": "S:10d0ee9668ff0d39fa7b10d3421588c88d4d15b6,",
+      "name": "Plica Portal/DM Sans/10/400/16/0"
+    },
+    {
+      "id": "S:6fe3ec13fc4a391d9c842cacfa0f4428bf24e614,",
+      "name": "Plica Portal/DM Sans/9/400/14.4/0"
+    },
+    {
+      "id": "S:73dc65d0e8e461c81e23626c03674c5271ee4a5c,",
+      "name": "Plica Portal/DM Sans/16/550/25.6/0"
+    },
+    {
+      "id": "S:1c8986ad17de8fdf2276af050caa8eeb0a0a1c1b,",
+      "name": "Plica Portal/DM Sans/20/600/20/-0.7"
+    },
+    {
+      "id": "S:60655e4677d602a93c5e37892a2dc1c20e2fc53a,",
+      "name": "Plica Portal/DM Sans/11/400/17.6/0"
+    },
+    {
+      "id": "S:68e42704fb1dacb984557f11cace36f94739084e,",
+      "name": "Plica Portal/DM Sans/15/550/24/0"
+    },
+    {
+      "id": "S:b8ac9108563a7d0db8c546248daba412e343956a,",
+      "name": "Plica Portal/DM Sans/7/400/11.200000000000001/0"
+    },
+    {
+      "id": "S:d8be3c4dd01cc9f71c2fdf46029bd572f7ab8990,",
+      "name": "Plica Portal/DM Sans/18/600/18/-0.7"
+    },
+    {
+      "id": "S:116b0a1e7ef6714c35b992672b0a22364ef3ffd3,",
+      "name": "Plica Portal/DM Sans/108/500/112.32000000000001/-7.0200000000000005"
+    },
+    {
+      "id": "S:b33d3d46c48230d559fe885fb28d98c41e8d2521,",
+      "name": "Plica Portal/DM Sans/41.73/500/45.0684/-2.5037999999999996"
+    },
+    {
+      "id": "S:682fc5d91bd7a9e114868bb492cc79f0dca1b0a9,",
+      "name": "Plica Portal/DM Sans/10/400/16/1.4"
+    },
+    {
+      "id": "S:ba96f5c08d5307aca257a16ec1748afb16e5bea6,",
+      "name": "Plica Portal/DM Sans/96/500/99.84/-6.24"
+    },
+    {
+      "id": "S:b58ea9f29c7ef234e49cba97d9a5c290b607e138,",
+      "name": "Plica Portal/DM Sans/9/400/14.4/0.81"
+    }
+  ],
+  "componentNodeIds": [
+    "15:56",
+    "15:58",
+    "15:61",
+    "15:62",
+    "15:65",
+    "15:66",
+    "15:69",
+    "15:70",
+    "15:73",
+    "15:74",
+    "15:77",
+    "15:78",
+    "15:81",
+    "15:82",
+    "15:85",
+    "15:86",
+    "15:97",
+    "15:104",
+    "15:105",
+    "15:108",
+    "15:109",
+    "15:112",
+    "15:113",
+    "15:116",
+    "15:117",
+    "15:120",
+    "15:121",
+    "15:124",
+    "15:125",
+    "15:128",
+    "15:129",
+    "15:132",
+    "15:133",
+    "15:140",
+    "16:197",
+    "16:214",
+    "16:216",
+    "16:220",
+    "16:223",
+    "16:226",
+    "16:234",
+    "16:238",
+    "17:21",
+    "17:31",
+    "18:14",
+    "18:15",
+    "18:16",
+    "18:17",
+    "18:18",
+    "18:19",
+    "18:20",
+    "18:21",
+    "18:22",
+    "18:23",
+    "18:24",
+    "87:3028",
+    "87:3029",
+    "87:3044",
+    "87:3047",
+    "87:3048",
+    "32:784",
+    "32:785",
+    "32:787",
+    "37:2486",
+    "44:2515",
+    "44:2517",
+    "87:3065",
+    "87:3066",
+    "87:3085",
+    "87:3086",
+    "44:2863",
+    "44:2877",
+    "44:2879",
+    "44:2884",
+    "44:2897",
+    "44:2898",
+    "44:2903",
+    "44:2917",
+    "44:2922",
+    "44:2936",
+    "44:2938",
+    "44:2943",
+    "44:2956",
+    "44:2957",
+    "44:2962",
+    "44:2976",
+    "69:2685",
+    "69:2724",
+    "69:2732",
+    "69:2740",
+    "69:2748",
+    "69:2756",
+    "69:2763",
+    "69:2770",
+    "76:2762",
+    "76:2776",
+    "76:2784",
+    "82:4151"
+  ],
+  "pages": [
+    {
+      "pageId": "7:194",
+      "mutatedNodeIds": [
+        "I62:2635;44:2515",
+        "I62:2635;44:2517"
+      ],
+      "updatedTextNodes": 2,
+      "remainingInter": 0
+    },
+    {
+      "pageId": "7:195",
+      "mutatedNodeIds": [
+        "I62:3905;44:2515",
+        "I62:3905;44:2517"
+      ],
+      "updatedTextNodes": 2,
+      "remainingInter": 0
+    },
+    {
+      "pageId": "71:2636",
+      "mutatedNodeIds": [
+        "71:2638",
+        "71:2642",
+        "71:2645",
+        "71:2650"
+      ],
+      "updatedTextNodes": 4,
+      "remainingInter": 0
+    }
+  ],
+  "hero": [
+    {
+      "id": "I62:2635;44:2515",
+      "text": "P",
+      "size": 34,
+      "font": {
+        "family": "DM Sans",
+        "style": "Regular",
+        "variationSettings": {
+          "opsz": 14,
+          "wght": 650
+        }
+      },
+      "letterSpacing": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 54.400001525878906
+      },
+      "w": 20,
+      "h": 55,
+      "style": ""
+    },
+    {
+      "id": "I62:2635;44:2517",
+      "text": "Plica",
+      "size": 35.999996185302734,
+      "font": {
+        "family": "DM Sans",
+        "style": "Regular",
+        "variationSettings": {
+          "opsz": 14,
+          "wght": 650
+        }
+      },
+      "letterSpacing": {
+        "unit": "PIXELS",
+        "value": -1.493333339691162
+      },
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 43.20000076293945
+      },
+      "w": 72,
+      "h": 44,
+      "style": ""
+    },
+    {
+      "id": "62:2644",
+      "text": "How the world’s\nsoftware works.",
+      "size": 96,
+      "font": {
+        "family": "DM Sans",
+        "style": "Regular",
+        "variationSettings": {
+          "opsz": 14,
+          "wght": 500
+        }
+      },
+      "letterSpacing": {
+        "unit": "PIXELS",
+        "value": -6.239999771118164
+      },
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 99.83999633789062
+      },
+      "w": 1060,
+      "h": 200,
+      "style": "S:ba96f5c08d5307aca257a16ec1748afb16e5bea6,"
+    },
+    {
+      "id": "I62:2650;16:14",
+      "text": "探索案例库",
+      "size": 13,
+      "font": {
+        "family": "Noto Sans SC",
+        "style": "Medium",
+        "variationSettings": {
+          "wght": 500
+        }
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 20.799999237060547
+      },
+      "w": 66,
+      "h": 21,
+      "style": ""
+    },
+    {
+      "id": "I62:2660;16:86",
+      "text": "什么是 Plica？",
+      "size": 13,
+      "font": {
+        "family": "Noto Sans SC",
+        "style": "Medium",
+        "variationSettings": {
+          "wght": 500
+        }
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 20.799999237060547
+      },
+      "w": 86,
+      "h": 21,
+      "style": ""
+    }
+  ],
+  "currentNavigationSync": "navigation-sync-2026-10-24.json",
+  "approvedChineseFontStack": [
+    "PingFang SC",
+    "MiSans"
+  ],
+  "figmaChineseFontLimitation": "The website uses the approved font stack. Figma text remains editable; missing fonts are documented in component descriptions and sync note. Exact font parity is not claimed."
+}

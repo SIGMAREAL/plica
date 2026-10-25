@@ -1,0 +1,4 @@
+{
+  "supersededBy": "kumo-redesign-nodes.json",
+  "note": "The rejected first prototype and its Archive were removed. Use the current Kumo ledger; these obsolete node IDs are no longer authoritative."
+}

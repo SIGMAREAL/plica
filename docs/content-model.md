@@ -1,13 +1,13 @@
 # Content model
 
-The root JSON files are the editable authority. Preserve the existing schema rather than creating a parallel CMS database.
+The JSON files in `backend/content/` are the editable authority. Preserve the existing schema rather than creating a parallel CMS database.
 
 - `cases.json`: 32 production case studies at the migration baseline. Each has a unique slug and original source URL, publishing company, product/category and mechanisms, source date, editorial introduction, trade-offs and supporting points. Source dates describe the cited work, not necessarily the present architecture.
 - `terms.json`: 35 glossary entries with stable IDs, definitions and engineering context. Definitions and case commentary are independently written summaries, not licensed copies of source articles.
 - `papers.json`: 3 research entries with original arXiv identifiers and editorial related-case links. Keep these distinct from Production.
 - `relations.json`: 50 explicit reviewed case–term edges with valid endpoint IDs and review status. Do not infer production edges from prose at build time.
 
-`build.py` derives product, organization and mechanism indexes, 130 HTML pages, research and glossary detail pages, the graph, comparisons and public API JSON. The 16 publishing organizations are a derived index, not a separate authority.
+`mechanisms.json`, `products.json` and `comparisons.json` hold taxonomy/product descriptions and editorial comparisons previously embedded in the renderer. `metadata.json` holds the content edition. `backend/catalog.py` validates and exports the public catalog, including publishing organizations derived from cases. `frontend/build.py` consumes that API catalog to render indexes, 130 HTML pages, glossary/research and graph views. The 16 publishing organizations remain a derived index, not a separate authority. See [API contract](api.md).
 
 ## Editing checklist
 

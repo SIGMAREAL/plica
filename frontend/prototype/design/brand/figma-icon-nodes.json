@@ -1,0 +1,28 @@
+{
+  "fileKey": "HN365jMHk14lQd2YAUSn4y",
+  "sessionId": "07bec0b7-6af5-454c-a173-f1e9e4f38f9a",
+  "date": "2026-10-23",
+  "status": "draft; not applied to the website",
+  "review": "69:2675",
+  "componentSet": "69:2658",
+  "variants": {
+    "mono": "69:2654",
+    "blue": "69:2655",
+    "graphite": "69:2656",
+    "inverse": "69:2657"
+  },
+  "variableCollection": "VariableCollectionId:69:2649",
+  "newVariables": [
+    "VariableID:69:2650",
+    "VariableID:69:2651",
+    "VariableID:69:2652",
+    "VariableID:69:2653"
+  ],
+  "meaningSource": "https://ahdictionary.com/word/search.html?q=plica",
+  "shaderSupportSource": "https://help.figma.com/hc/en-us/articles/4406787442711-What-Figma-features-are-in-beta",
+  "notes": [
+    "Plica means fold or ridge; connecting it with software layers is a design interpretation.",
+    "Native vector geometry and Figma gradient fills; no custom shader authored for this draft.",
+    "One geometric direction, with mono, folded blue, graphite and inverse treatments."
+  ]
+}

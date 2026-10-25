@@ -1,0 +1,709 @@
+{
+  "fileKey": "HN365jMHk14lQd2YAUSn4y",
+  "sessionId": "de44f76f-dd01-4d03-8892-a7e944109f71",
+  "updated": "2026-10-24",
+  "scope": "Navigation sync across all 44 existing knowledge-base frames and both Landing frames; shared components and interaction states.",
+  "status": {
+    "navigation": "synced",
+    "typography": "DM Sans synced; exact Chinese font parity unavailable in current Figma environment"
+  },
+  "pages": {
+    "desktop": "7:194",
+    "mobile": "7:195",
+    "components": "15:2"
+  },
+  "links": {
+    "desktopProducts": "https://www.figma.com/design/HN365jMHk14lQd2YAUSn4y?node-id=33-1173",
+    "mobileProducts": "https://www.figma.com/design/HN365jMHk14lQd2YAUSn4y?node-id=34-2839",
+    "componentReview": "https://www.figma.com/design/HN365jMHk14lQd2YAUSn4y?node-id=113-4027",
+    "desktopLanding": "https://www.figma.com/design/HN365jMHk14lQd2YAUSn4y?node-id=45-2503"
+  },
+  "components": {
+    "desktopHeader": "25:100",
+    "mobileHeader": "25:108",
+    "portalDesktopHeader": "44:2518",
+    "portalMobileHeader": "44:2544",
+    "contextSidebar": "105:5729",
+    "contextVariants": {
+      "Home": "105:3012",
+      "Library": "105:3044",
+      "Reading": "105:3093",
+      "GraphMechanisms": "105:3125",
+      "Glossary": "105:3428",
+      "Research": "105:3604",
+      "Compare": "105:3670",
+      "Term": "105:3694",
+      "Paper": "105:3808",
+      "Products": "25:41",
+      "Product": "105:4005",
+      "Teams": "105:4151",
+      "Team": "105:4254",
+      "Mechanisms": "105:4344",
+      "Mechanism": "105:4415",
+      "About": "105:4481",
+      "Sponsor": "105:4507",
+      "Skill": "105:4533",
+      "GraphProducts": "105:4561",
+      "GraphTeams": "105:4864",
+      "GraphTerms": "105:5238",
+      "ReadingQuestion": "105:5612",
+      "Collapsed": "105:5644"
+    },
+    "mobileContextBar": "108:3575",
+    "mobileContextTitleProperty": "Title#108:0",
+    "review": "113:4027",
+    "syncNote": "108:3581"
+  },
+  "frames": {
+    "desktop": [
+      {
+        "id": "9:65",
+        "name": "01 · Discover / 1440",
+        "w": 1440,
+        "h": 2164,
+        "headerEntries": 6,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "9:290",
+        "name": "02 · Case library / 1440",
+        "w": 1440,
+        "h": 1616,
+        "headerEntries": 6,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "9:408",
+        "name": "03 · Case reading / 1440",
+        "w": 1440,
+        "h": 2029,
+        "headerEntries": 6,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "9:511",
+        "name": "Graph / systems / 1440",
+        "w": 1440,
+        "h": 1805,
+        "headerEntries": 6,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "9:639",
+        "name": "05 · Glossary / 1440",
+        "w": 1440,
+        "h": 1262,
+        "headerEntries": 6,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "9:736",
+        "name": "06 · Research / 1440",
+        "w": 1440,
+        "h": 1341,
+        "headerEntries": 6,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "9:813",
+        "name": "07 · Comparisons / 1440",
+        "w": 1440,
+        "h": 1207,
+        "headerEntries": 6,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "26:1059",
+        "name": "08 · Term detail / 1440",
+        "w": 1440,
+        "h": 1304,
+        "headerEntries": 6,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "26:1172",
+        "name": "09 · Paper detail / 1440",
+        "w": 1440,
+        "h": 1000,
+        "headerEntries": 6,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "33:1173",
+        "name": "Index / products / 1440",
+        "w": 1440,
+        "h": 4620,
+        "headerEntries": 6,
+        "legacy": 0,
+        "productCards": 30
+      },
+      {
+        "id": "33:1478",
+        "name": "Detail / products / 1440",
+        "w": 1440,
+        "h": 1195,
+        "headerEntries": 6,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "33:1617",
+        "name": "Index / companies / 1440",
+        "w": 1440,
+        "h": 1870,
+        "headerEntries": 6,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "33:1864",
+        "name": "Detail / companies / 1440",
+        "w": 1440,
+        "h": 1019,
+        "headerEntries": 6,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "33:1998",
+        "name": "Index / systems / 1440",
+        "w": 1440,
+        "h": 1382,
+        "headerEntries": 6,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "33:2187",
+        "name": "Detail / systems / 1440",
+        "w": 1440,
+        "h": 2187,
+        "headerEntries": 6,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "33:2379",
+        "name": "Info / about / 1440",
+        "w": 1440,
+        "h": 1000,
+        "headerEntries": 6,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "33:2480",
+        "name": "Info / sponsor / 1440",
+        "w": 1440,
+        "h": 1000,
+        "headerEntries": 6,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "33:2586",
+        "name": "Info / skill / 1440",
+        "w": 1440,
+        "h": 1052,
+        "headerEntries": 6,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "33:2709",
+        "name": "Graph / products / 1440",
+        "w": 1440,
+        "h": 1580,
+        "headerEntries": 6,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "33:2896",
+        "name": "Graph / companies / 1440",
+        "w": 1440,
+        "h": 1356,
+        "headerEntries": 6,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "33:3069",
+        "name": "Graph / terms / 1440",
+        "w": 1440,
+        "h": 1532,
+        "headerEntries": 6,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "36:2387",
+        "name": "Reading question preview / 1440",
+        "w": 1440,
+        "h": 1000,
+        "headerEntries": 6,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "45:2503",
+        "name": "Landing / Portal / 1440",
+        "w": 1440,
+        "h": 3062.66748046875,
+        "headerEntries": 6,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "110:5398",
+        "name": "Products / Sidebar collapsed / 1440",
+        "w": 1440,
+        "h": 1000,
+        "headerEntries": 6,
+        "legacy": 0,
+        "productCards": 30
+      }
+    ],
+    "mobile": [
+      {
+        "id": "9:892",
+        "name": "01 · Discover / 390",
+        "bars": 1,
+        "ctas": 1,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "9:1084",
+        "name": "02 · Case library / 390",
+        "bars": 1,
+        "ctas": 1,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "9:1164",
+        "name": "03 · Case reading / 390",
+        "bars": 1,
+        "ctas": 1,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "9:1248",
+        "name": "Graph / systems / 390",
+        "bars": 1,
+        "ctas": 1,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "27:1165",
+        "name": "05 · Glossary / 390",
+        "bars": 1,
+        "ctas": 1,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "27:1225",
+        "name": "06 · Research / 390",
+        "bars": 1,
+        "ctas": 1,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "27:1277",
+        "name": "07 · Comparisons / 390",
+        "bars": 1,
+        "ctas": 1,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "27:1354",
+        "name": "08 · Term detail / 390",
+        "bars": 1,
+        "ctas": 1,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "27:1420",
+        "name": "09 · Paper detail / 390",
+        "bars": 1,
+        "ctas": 1,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "34:2839",
+        "name": "Index / products / 390",
+        "bars": 1,
+        "ctas": 1,
+        "legacy": 0,
+        "productCards": 30
+      },
+      {
+        "id": "34:3111",
+        "name": "Detail / products / 390",
+        "bars": 1,
+        "ctas": 1,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "34:3189",
+        "name": "Index / companies / 390",
+        "bars": 1,
+        "ctas": 1,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "34:3395",
+        "name": "Detail / companies / 390",
+        "bars": 1,
+        "ctas": 1,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "34:3468",
+        "name": "Index / systems / 390",
+        "bars": 1,
+        "ctas": 1,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "34:3608",
+        "name": "Detail / systems / 390",
+        "bars": 1,
+        "ctas": 1,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "34:3739",
+        "name": "Info / about / 390",
+        "bars": 1,
+        "ctas": 1,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "34:3779",
+        "name": "Info / sponsor / 390",
+        "bars": 1,
+        "ctas": 1,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "34:3824",
+        "name": "Info / skill / 390",
+        "bars": 1,
+        "ctas": 1,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "34:3886",
+        "name": "Graph / products / 390",
+        "bars": 1,
+        "ctas": 1,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "34:3984",
+        "name": "Graph / companies / 390",
+        "bars": 1,
+        "ctas": 1,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "34:4078",
+        "name": "Graph / terms / 390",
+        "bars": 1,
+        "ctas": 1,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "36:3631",
+        "name": "Reading question preview / 390",
+        "bars": 1,
+        "ctas": 1,
+        "legacy": 0,
+        "productCards": 0
+      },
+      {
+        "id": "45:3606",
+        "name": "Landing / Portal / 390",
+        "bars": 0,
+        "ctas": 1,
+        "legacy": 0,
+        "productCards": 0
+      }
+    ]
+  },
+  "interactions": {
+    "desktopMenus": {
+      "knowledge": {
+        "id": "110:5283",
+        "header": "110:5303",
+        "panel": "110:5285"
+      },
+      "about": {
+        "id": "110:5334",
+        "header": "110:5355",
+        "panel": "110:5336"
+      }
+    },
+    "collapsedProducts": "110:5398",
+    "mobileMenus": {
+      "closed": {
+        "id": "111:6783",
+        "entries": {
+          "案例库": "111:6794",
+          "产品": "111:6797",
+          "团队": "111:6800",
+          "机制": "111:6803",
+          "知识": "111:6806",
+          "关于 Plica": "111:6811"
+        }
+      },
+      "knowledge": {
+        "id": "111:6820",
+        "entries": {
+          "案例库": "111:6831",
+          "产品": "111:6834",
+          "团队": "111:6837",
+          "机制": "111:6840",
+          "知识": "111:6843",
+          "关于 Plica": "111:6865"
+        }
+      },
+      "about": {
+        "id": "111:6874",
+        "entries": {
+          "案例库": "111:6885",
+          "产品": "111:6888",
+          "团队": "111:6891",
+          "机制": "111:6894",
+          "知识": "111:6897",
+          "关于 Plica": "111:6902"
+        }
+      }
+    },
+    "mobileDirectories": [
+      {
+        "id": "109:4926",
+        "key": "Home",
+        "panel": "109:4927",
+        "close": "109:4959"
+      },
+      {
+        "id": "109:4971",
+        "key": "Library",
+        "panel": "109:4972",
+        "close": "109:5021"
+      },
+      {
+        "id": "109:5033",
+        "key": "Reading",
+        "panel": "109:5034",
+        "close": "109:5066"
+      },
+      {
+        "id": "109:5078",
+        "key": "GraphMechanisms",
+        "panel": "109:5079",
+        "close": "109:5159"
+      },
+      {
+        "id": "109:5171",
+        "key": "Glossary",
+        "panel": "109:5172",
+        "close": "109:5267"
+      },
+      {
+        "id": "109:5279",
+        "key": "Research",
+        "panel": "109:5280",
+        "close": "109:5311"
+      },
+      {
+        "id": "109:5323",
+        "key": "Compare",
+        "panel": "109:5324",
+        "close": "109:5348"
+      },
+      {
+        "id": "109:5360",
+        "key": "Term",
+        "panel": "109:5361",
+        "close": "109:5472"
+      },
+      {
+        "id": "109:5484",
+        "key": "Paper",
+        "panel": "109:5485",
+        "close": "109:5530"
+      },
+      {
+        "id": "109:5542",
+        "key": "Products",
+        "panel": "109:5543",
+        "close": "109:5658"
+      },
+      {
+        "id": "109:5670",
+        "key": "Product",
+        "panel": "109:5671",
+        "close": "109:5787"
+      },
+      {
+        "id": "109:5799",
+        "key": "Teams",
+        "panel": "109:5800",
+        "close": "109:5873"
+      },
+      {
+        "id": "109:5885",
+        "key": "Team",
+        "panel": "109:5886",
+        "close": "109:5960"
+      },
+      {
+        "id": "109:5972",
+        "key": "Mechanisms",
+        "panel": "109:5973",
+        "close": "109:6028"
+      },
+      {
+        "id": "109:6040",
+        "key": "Mechanism",
+        "panel": "109:6041",
+        "close": "109:6097"
+      },
+      {
+        "id": "109:6109",
+        "key": "About",
+        "panel": "109:6110",
+        "close": "109:6136"
+      },
+      {
+        "id": "109:6148",
+        "key": "Sponsor",
+        "panel": "109:6149",
+        "close": "109:6175"
+      },
+      {
+        "id": "109:6187",
+        "key": "Skill",
+        "panel": "109:6188",
+        "close": "109:6216"
+      },
+      {
+        "id": "109:6228",
+        "key": "GraphProducts",
+        "panel": "109:6229",
+        "close": "109:6345"
+      },
+      {
+        "id": "109:6357",
+        "key": "GraphTeams",
+        "panel": "109:6358",
+        "close": "109:6456"
+      },
+      {
+        "id": "109:6468",
+        "key": "GraphTerms",
+        "panel": "109:6469",
+        "close": "109:6618"
+      },
+      {
+        "id": "109:6630",
+        "key": "ReadingQuestion",
+        "panel": "109:6631",
+        "close": "109:6663"
+      }
+    ]
+  },
+  "navigation": {
+    "globalEntries": [
+      "案例库",
+      "产品",
+      "团队",
+      "机制",
+      "知识",
+      "关于 Plica"
+    ],
+    "cta": "获取 Skill",
+    "sidebarWidth": 240,
+    "collapsedSidebarWidth": 64,
+    "mobileContextBarHeight": 48,
+    "sidebarScope": "Context-specific directory or page outline, reviewed related terms, local reading list; no global navigation duplication."
+  },
+  "typography": {
+    "target": "DM Sans + PingFang SC; MiSans on other platforms",
+    "figmaActual": "DM Sans + Noto Sans SC",
+    "fontAvailability": {
+      "DM Sans": true,
+      "PingFang SC": false,
+      "MiSans": false
+    },
+    "note": "The website uses the approved font stack. Figma text remains editable; missing fonts are documented in component descriptions and sync note. Exact font parity is not claimed."
+  },
+  "verification": {
+    "existingKnowledgeFrames": 44,
+    "landingFrames": 2,
+    "desktopHeaderEntriesPerFrame": 6,
+    "mobileContextBars": 22,
+    "desktopProductCards": 30,
+    "mobileProductCards": 30,
+    "legacyDuplicatedNavigationBlocks": 0,
+    "sidebarVariants": 23,
+    "mobileDirectoryOverlays": 22,
+    "createdOrRefreshedNavigationConnections": 397,
+    "screenshotsReviewed": [
+      "desktop products",
+      "desktop reading",
+      "desktop Landing",
+      "desktop knowledge menu",
+      "mobile products",
+      "mobile global menu",
+      "mobile reading directory",
+      "component review"
+    ],
+    "editable": true,
+    "flattenedUiImagesAdded": 0
+  },
+  "code": [
+    "src/layout/SiteHeader.tsx",
+    "src/layout/header-navigation.ts",
+    "src/layout/ContextSidebar.tsx",
+    "src/layout/context-navigation.ts",
+    "src/layout/context-sidebar.css"
+  ],
+  "evidence": "artifacts/figma-sync/",
+  "notes": [
+    "Existing main frame IDs were retained. Brand shader/icon experiments remain deferred.",
+    "Product catalog remains 30 items with existing high-resolution app artwork. Landing product count corrected from 22 to 30.",
+    "This is a Figma/design-ledger update; no new application source edits, deployment, or CI run in this sync."
+  ]
+}

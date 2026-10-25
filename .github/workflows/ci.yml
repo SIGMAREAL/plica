@@ -17,7 +17,12 @@ jobs:
           node-version: '22'
       - run: python3 -m pip install -r requirements-test.txt
       - run: python3 -m playwright install --with-deps chromium
+      - run: npm ci --prefix frontend/prototype
+      - run: python3 -m backend build
+      - run: node --test frontend/prototype/src/*.test.ts
       - run: python3 validate_content.py
+      - name: Test independent backend and frontend boundaries
+        run: python3 -m unittest discover -s tests -v
       - run: python3 build.py
       - run: node --check site/assets/site.js
       - name: Check generated snapshots are current

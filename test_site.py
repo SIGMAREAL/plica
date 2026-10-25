@@ -37,10 +37,8 @@ except ImportError as exc:
 
 ROOT = Path(__file__).resolve().parent
 SITE = ROOT / 'site'
-CASES = json.loads((ROOT / 'cases.json').read_text())
-TERMS = json.loads((ROOT / 'terms.json').read_text())
-PAPERS = json.loads((ROOT / 'papers.json').read_text())
-RELATIONS = json.loads((ROOT / 'relations.json').read_text())
+CATALOG = json.loads((SITE / 'api/v1/catalog.json').read_text())
+CASES, TERMS, PAPERS, RELATIONS = (CATALOG[k] for k in ('cases', 'terms', 'papers', 'relations'))
 OUTPUT = Path(os.environ.get('PLICA_TEST_OUTPUT') or tempfile.mkdtemp(prefix='plica-tests-'))
 
 

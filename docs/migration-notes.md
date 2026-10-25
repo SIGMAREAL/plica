@@ -50,3 +50,8 @@ The browser harness no longer substitutes inline HTML/CSS/JavaScript or disables
 Local content validation, Python generation, JavaScript syntax and static link checks executed successfully. Local Chromium execution was blocked by the cloud executor's socket sandbox before browser assertions could run; no local browser pass is claimed. GitHub Actions is the intended real HTTP Playwright execution environment, and public deployment must be verified separately. Consult the exact commit's Actions results and the migration tracking issue for actual CI/deployment acceptance.
 
 No Drive content was changed. No historical timestamps or commits were fabricated. Original requirement issue #39 is retained. Public repository exposure does not itself establish copyright clearance; see licensing.md.
+
+
+## Subsequent source-layout refactor — 2026-10-23
+
+The user requested frontend/backend separation before independently redesigning UI. Current editorial JSON and Skill source now live in `backend/content/` and `backend/skills/`; taxonomy/product/comparison records were extracted from the old renderer. `frontend/build.py` and `frontend/assets/` own retained presentation. Root build orchestrates independent stages via the public catalog. Historical archive and migration statements above describe the 2026-10-21 baseline, not today's source paths. Original content and old API bytes are preserved; homepage taxonomy text now safely escapes six ampersands without changing displayed text; the complete API catalog is additive. This local refactor is not evidence of a new remote deployment.

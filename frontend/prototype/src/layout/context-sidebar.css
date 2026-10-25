@@ -1,0 +1,48 @@
+.plica-app .app-sidebar { width: 240px; padding: 20px 20px 20px 24px; overflow: hidden; }
+.context-sidebar-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 36px; padding: 0 4px; margin-bottom: 14px; }
+.context-sidebar-heading>span { font-size: 13px; font-weight: 500; }
+.context-sidebar-heading>button { color: var(--ui-muted); }
+.context-sidebar-scroll { overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--ui-line) transparent; flex: 1; min-height: 0; padding: 0 4px 20px; }
+.context-search { position: relative; margin: 0 4px 20px; flex-shrink: 0; }
+.context-search>svg { position: absolute; top: 9px; left: 10px; z-index: 1; color: var(--ui-muted); pointer-events: none; }
+.context-search>input { width: 100%; height: 32px !important; padding: 5px 28px 5px 31px !important; font-size: 12px !important; background: transparent; border-color: var(--ui-line); border-radius: 6px; }
+.context-search>button { position: absolute; right: 5px; top: 6px; }
+.context-navigation { display: grid; gap: 24px; }
+.context-group>summary { list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 4px 8px 10px; font-size: 11px; color: var(--ui-muted); cursor: pointer; user-select: none; }
+.context-group>summary::-webkit-details-marker { display: none; }
+.context-group>summary:focus-visible { outline: 2px solid var(--ui-focus); outline-offset: 3px; border-radius: 4px; }
+.context-group-meta { display: inline-flex; align-items: center; gap: 9px; font-variant-numeric: tabular-nums; }
+.context-group[open]>summary svg { transform: rotate(180deg); }
+.context-links { display: grid; gap: 2px; }
+.context-links a { position: relative; display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding: 8px; border-radius: 5px; color: var(--ui-muted); font-size: 13px; line-height: 1.55; }
+.context-links a>span { min-width: 0; overflow-wrap: anywhere; }
+.context-links a>small { color: var(--ui-muted); font-size: 10px; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+.context-links a:hover { background: var(--ui-tint); color: var(--ui-text); }
+.context-links a[aria-current] { color: var(--ui-text); font-weight: 500; }
+.context-links a[aria-current]::before { content: ''; position: absolute; left: -4px; top: 11px; bottom: 11px; width: 2px; min-height: 12px; border-radius: 2px; background: var(--ui-text); }
+.context-links a[data-depth='1'] { padding-left: 22px; font-size: 12px; }
+.context-reading-list { padding: 16px 4px 0; border-top: 1px solid var(--ui-line); max-height: 35%; overflow-y: auto; }
+.context-reading-list .context-links a { font-size: 12px; }
+.context-reading-empty { display: flex; justify-content: space-between; padding: 6px 8px; color: var(--ui-muted); font-size: 11px; }
+.context-empty { font-size: 12px; color: var(--ui-muted); padding: 12px 8px; }
+.plica-app .app-workspace { margin-left: 240px; }
+.plica-app[data-sidebar-collapsed=true] .app-sidebar { width: 64px; padding-inline: 14px; }
+.plica-app[data-sidebar-collapsed=true] .context-sidebar-heading { padding: 0; }
+.plica-app[data-sidebar-collapsed=true] .app-workspace { margin-left: 64px; }
+.plica-app[data-sidebar-collapsed=true] .reading-progress { left: 64px; }
+.plica-app .reading-progress { left: 240px; }
+.plica-app .app-main [id] { scroll-margin-top: 0; }
+.context-mobile-bar { display: none; }
+.context-mobile-dialog .context-sidebar-scroll { padding: 12px 24px 28px; }
+.context-mobile-heading { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px 8px 28px; }
+.context-mobile-heading h2 { font-size: 18px; font-weight: 500; }
+.context-mobile-dialog .context-reading-list { margin: 0 24px 24px; }
+@media (max-width: 860px) {
+  .plica-app .app-workspace, .plica-app[data-sidebar-collapsed=true] .app-workspace { margin-left: 0; }
+  .plica-app .reading-progress, .plica-app[data-sidebar-collapsed=true] .reading-progress { left: 0; }
+  .context-mobile-bar { display: flex; align-items: center; min-height: 48px; padding: 6px 20px; border-bottom: 1px solid var(--ui-line); background: var(--ui-surface); position: sticky; top: 64px; z-index: 29; }
+  .context-mobile-bar>button { font-size: 12px; color: var(--ui-muted); }
+  .plica-app .app-main [id] { scroll-margin-top: 50px; }
+}
+
+.context-mobile-dialog>.context-search { margin: 12px 28px 20px; }

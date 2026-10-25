@@ -1,0 +1,60 @@
+{
+  "fileKey": "HN365jMHk14lQd2YAUSn4y",
+  "sessionId": "1d1632e5-e079-470c-b33d-097acb475b46",
+  "updated": "2026-10-24",
+  "scope": "Independent portal landing; original discovery and knowledge-base routes preserved",
+  "route": "#/landing",
+  "staticPaths": [
+    "/landing/",
+    "/plica/landing/"
+  ],
+  "pages": {
+    "desktop": "7:194",
+    "mobile": "7:195",
+    "components": "15:2"
+  },
+  "frames": {
+    "390": {
+      "id": "45:3606",
+      "name": "Landing / Portal / 390",
+      "width": 390,
+      "x": 4610,
+      "y": 100
+    },
+    "1440": {
+      "id": "45:2503",
+      "name": "Landing / Portal / 1440",
+      "width": 1440,
+      "x": 14060,
+      "y": 100
+    }
+  },
+  "components": {
+    "brand": "44:2512",
+    "header": "44:2563",
+    "paths": "44:2977",
+    "resource": "44:2978"
+  },
+  "source": [
+    "src/pages/LandingPage.tsx",
+    "src/pages/landing.css",
+    "src/layout/PortalShell.tsx",
+    "src/ui/Brand.tsx"
+  ],
+  "evidence": "artifacts/portal-final-hero (ignored)",
+  "notes": [
+    "Native editable text, vectors and shared component instances; no flattened UI images.",
+    "Shared ui token bindings; DM Sans. Chinese font availability and current fallback are documented in navigation-sync-2026-10-24.json.",
+    "44 existing knowledge-base frames remain in design/kumo-redesign-nodes.json.",
+    "Rejected split Hero and unused preview component set removed."
+  ],
+  "hero": {
+    "layout": "centered Plica icon/name, headline, two original buttons; no positioning or subtitle",
+    "headline": "How the world’s software works.",
+    "desktop": "47:2529",
+    "mobile": "47:4010",
+    "copySource": "https://drive.google.com/file/d/1eY1ZphtJyL3BtR4OcKWx5tNLlL0nUEzl/view",
+    "identity": "Shared Plica Brand instance enlarged for Hero"
+  },
+  "currentNavigationSync": "navigation-sync-2026-10-24.json"
+}

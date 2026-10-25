@@ -1,0 +1,1970 @@
+{
+  "schema_version": "1.0",
+  "edition": "2026-10-19-v1.2",
+  "cases": [
+    {
+      "slug": "dropbox-magic-pocket",
+      "company": "Dropbox",
+      "product": "Dropbox",
+      "category": "storage",
+      "title": "Inside the Magic Pocket",
+      "question": "数十亿个文件，为什么不直接存成完整文件？",
+      "summary": "Dropbox 公开自研 Magic Pocket 的分块与跨地域存储架构：把文件内容与文件元数据分离，用不可变块简化底层存储，再让更高一层处理变更。",
+      "why": "少见的系统级全貌：从用户文件，到 4MB 块、存储桶、复制、纠删码与多区域设计，每层都有明确的理由。",
+      "points": [
+        "文件内容拆为最大 4MB 的不可变块，文件的修改记录由独立的 FileJournal 管理。",
+        "块被聚合进更大的 bucket，先复制以保障可靠性，再转向更节省空间的纠删码存储。",
+        "跨区域独立副本与单元隔离降低单点事故蔓延的风险。"
+      ],
+      "tradeoff": "不可变存储降低一致性复杂度，却把更新、删除与空间回收放到了其他子系统。",
+      "source": "https://dropbox.tech/infrastructure/inside-the-magic-pocket",
+      "date": "2016-05-06",
+      "type": "工程博客",
+      "mechanisms": [
+        "Immutable blocks",
+        "Replication",
+        "Erasure coding"
+      ],
+      "signal": "存储架构",
+      "readTime": "12 min",
+      "featured": true
+    },
+    {
+      "slug": "dropbox-storage-compaction",
+      "company": "Dropbox",
+      "product": "Dropbox",
+      "category": "storage",
+      "title": "Improving storage efficiency in Magic Pocket, our immutable blob store",
+      "question": "不可变对象被删除后，磁盘空间究竟如何回来？",
+      "summary": "一次为了降低写放大的系统改动，意外增加了存储碎片。Dropbox 解释为什么垃圾回收不等于真正释放空间，以及怎样重设计 compaction。",
+      "why": "不只介绍“成功架构”，而是暴露设计优化的副作用与生产环境中的纠偏过程。",
+      "points": [
+        "垃圾回收标记可删除数据，而 compaction 需要把仍有效的数据写入新卷来物理回收空间。",
+        "不可变卷无法在关闭后重新打开，使碎片管理更依赖后台调度。",
+        "在大规模数据系统中，微小的空间开销变化也可能演变为显著成本。"
+      ],
+      "tradeoff": "减少后台写操作与降低碎片率可能相互冲突；优化必须结合成本和恢复速度。",
+      "source": "https://dropbox.tech/infrastructure/improving-storage-efficiency-in-magic-pocket-our-immutable-blob-store",
+      "date": "2026-04-02",
+      "type": "工程博客",
+      "mechanisms": [
+        "Garbage collection",
+        "Compaction",
+        "Storage efficiency"
+      ],
+      "signal": "架构演进",
+      "readTime": "10 min"
+    },
+    {
+      "slug": "youtube-video-infrastructure",
+      "company": "YouTube",
+      "product": "YouTube",
+      "category": "video",
+      "title": "Reimagining video infrastructure to empower YouTube",
+      "question": "为什么全球视频平台要为转码专门造一颗芯片？",
+      "summary": "YouTube 从转码成本和效率出发，介绍专用 Video (trans)Coding Unit，以及与之配套的仓储级软件系统。",
+      "why": "清楚展示从产品体验指标推导到硬件和软件协同设计的过程，而不仅仅是选哪种编解码格式。",
+      "points": [
+        "相同视频需要按设备和网络条件准备不同版本，因此转码是大规模持续任务。",
+        "通用 CPU 在特定转码任务上的效率有限，YouTube 开发专用 VCU 来承担工作。",
+        "芯片与调度软件必须一起设计，才能在数据中心规模上发挥收益。"
+      ],
+      "tradeoff": "专用硬件提高规模化效率，但对负载稳定性、部署和演进提出更高要求。",
+      "source": "https://blog.youtube/inside-youtube/new-era-video-infrastructure/",
+      "date": "2021-04-21",
+      "type": "官方技术文章",
+      "mechanisms": [
+        "Transcoding",
+        "Custom silicon",
+        "Video delivery"
+      ],
+      "signal": "软硬件协同",
+      "readTime": "8 min",
+      "featured": true
+    },
+    {
+      "slug": "netflix-shot-based-encoding",
+      "company": "Netflix",
+      "product": "Netflix",
+      "category": "video",
+      "title": "Optimized shot-based encodes: Now Streaming!",
+      "question": "同样的带宽，怎样让视频真正看起来更清晰？",
+      "summary": "Netflix 将视频压缩的优化单位从完整影片细化到镜头，结合 VMAF 质量指标选择编码方案，同时调整大规模转码管线。",
+      "why": "算法收益与真实生产成本同框出现：镜头级优化改进码率效率，却也极大增加后台任务碎片。",
+      "points": [
+        "按镜头而非整部影片固定编码配置，尽可能匹配不同画面复杂度。",
+        "使用感知质量指标 VMAF 在多种分辨率和码率之间寻找更好的选择。",
+        "镜头级任务数量远多于分钟级切块，编码管线需要额外的聚合与检查点机制。"
+      ],
+      "tradeoff": "更精细的压缩优化降低播放带宽，却需要额外的计算与任务编排开销。",
+      "source": "https://medium.com/netflix-techblog/optimized-shot-based-encodes-now-streaming-4b9464204830",
+      "date": "2018-03-09",
+      "type": "工程博客",
+      "mechanisms": [
+        "Per-shot encoding",
+        "VMAF",
+        "Video pipelines"
+      ],
+      "signal": "编码与传输",
+      "readTime": "8 min"
+    },
+    {
+      "slug": "figma-multiplayer",
+      "company": "Figma",
+      "product": "Figma",
+      "category": "collaboration",
+      "title": "How Figma’s multiplayer technology works",
+      "question": "两个人同时修改同一份设计，谁的修改算数？",
+      "summary": "Figma 从设计需求解释为什么没有直接使用标准 OT，而是设计适合图形属性的多人实时协作同步系统。",
+      "why": "一个典型的“场景决定架构”案例：文本协作的成熟方法不一定是图形设计工具的最优方案。",
+      "points": [
+        "每份多人协作文档有相应的服务端进程，客户端通过 WebSocket 实时同步变更。",
+        "属性级别的冲突解决允许不同对象属性的修改互不干扰。",
+        "客户端离线后可以重载最新状态并重新应用离线变更。"
+      ],
+      "tradeoff": "针对对象属性的简化同步协议更容易迭代，但不能直接替代所有通用文本协作方法。",
+      "source": "https://www.figma.com/blog/how-figmas-multiplayer-technology-works/",
+      "date": "2019-10-16",
+      "type": "创始人技术文章",
+      "mechanisms": [
+        "WebSockets",
+        "Conflict resolution",
+        "Multiplayer"
+      ],
+      "signal": "实时协作",
+      "readTime": "14 min",
+      "featured": true
+    },
+    {
+      "slug": "discord-trillion-message-storage",
+      "company": "Discord",
+      "product": "Discord",
+      "category": "collaboration",
+      "title": "How Discord Stores Trillions of Messages",
+      "question": "当聊天记录达到万亿规模，数据库迁移怎么不停机？",
+      "summary": "Discord 讲述消息存储从 Cassandra 向 ScyllaDB 迁移的原因、代价与实施过程，覆盖分区、性能瓶颈以及双写和迁移策略。",
+      "why": "它关注的不是“哪种数据库最强”，而是当运维负担逐渐失控时，团队如何判断重构时机和迁移风险。",
+      "points": [
+        "消息按频道和时间桶分区，以支持典型聊天历史的访问模式。",
+        "原有 Cassandra 系统扩容后出现维护负担和延迟不稳定问题。",
+        "通过新集群、双写和历史数据迁移降低切换期间的可用性风险。"
+      ],
+      "tradeoff": "迁移能改善长期性能和维护成本，但临时双写、数据一致性和回滚机制会增加复杂度。",
+      "source": "https://discord.com/blog/how-discord-stores-trillions-of-messages",
+      "date": "2023-03-06",
+      "type": "工程博客",
+      "mechanisms": [
+        "Data migration",
+        "Sharding",
+        "ScyllaDB"
+      ],
+      "signal": "消息基础设施",
+      "readTime": "11 min"
+    },
+    {
+      "slug": "discord-message-indexing",
+      "company": "Discord",
+      "product": "Discord",
+      "category": "search",
+      "title": "How Discord Indexes Trillions of Messages",
+      "question": "海量聊天消息的搜索，为什么不能只靠更大的搜索集群？",
+      "summary": "Discord 复盘从搜索数十亿条消息到数万亿条的演进，讲解索引分片、超大型社区隔离与滚动升级能力。",
+      "why": "能看到搜索架构的“规模拐点”：索引分配、恢复能力和升级效率经常比单点查询性能更重要。",
+      "points": [
+        "旧系统按照 Discord 社区或私信维度组织 Elasticsearch 索引。",
+        "超大型社区触及单索引文档限制，需要单独的分片策略。",
+        "新架构围绕可升级、可自动恢复、低延迟重设计。"
+      ],
+      "tradeoff": "为特大型租户单独分片提升扩展性，但同时增加运维与资源调度复杂度。",
+      "source": "https://discord.com/blog/how-discord-indexes-trillions-of-messages",
+      "date": "2025-04-24",
+      "type": "工程博客",
+      "mechanisms": [
+        "Elasticsearch",
+        "Index sharding",
+        "Search latency"
+      ],
+      "signal": "检索系统",
+      "readTime": "9 min"
+    },
+    {
+      "slug": "uber-ab-platform",
+      "company": "Uber",
+      "product": "Uber",
+      "category": "release",
+      "title": "Supercharging A/B Testing at Uber",
+      "question": "当 Feature Flag 变成基础设施，失败时为什么不能拖垮整个 App？",
+      "summary": "Uber 复盘重建大规模实验平台的决定，把远程参数、分流、实验与统计分析纳入一致的配置抽象。",
+      "why": "软件发布控制的元架构范本：一个起初可选的实验平台变成关键依赖后，容错和抽象必须随之升级。",
+      "points": [
+        "原有平台的实验分流和配置限制可能导致不可信的实验结果。",
+        "新平台以有安全默认值的 Parameter 隔离客户端代码和实验配置。",
+        "跨移动端、后端的实验系统与远程配置合并，减少重复实现与不同步风险。"
+      ],
+      "tradeoff": "高度灵活的实验设计需要防止规则冲突，并确保平台不可用时客户端仍能运行。",
+      "source": "https://www.uber.com/us/en/blog/supercharging-a-b-testing-at-uber/",
+      "date": "2022-07-21",
+      "type": "工程博客",
+      "mechanisms": [
+        "Feature flags",
+        "Experiment assignment",
+        "Fail-safe defaults"
+      ],
+      "signal": "交付与实验",
+      "readTime": "16 min",
+      "featured": true
+    },
+    {
+      "slug": "uber-flipr",
+      "company": "Uber",
+      "product": "Uber",
+      "category": "release",
+      "title": "Flipr: Making Changes Quickly and Safely at Scale",
+      "question": "同一套配置怎样同时控制实验、灰度、回滚和地区策略？",
+      "summary": "Uber 发布远程配置服务 Flipr 的设计：规则化属性、客户端 SDK、管理界面和数据分发，并解释如何让配置变更安全触达大量服务。",
+      "why": "与重建 A/B 平台的文章能组成对照：配置分发是底座，实验系统可以构建在其上。",
+      "points": [
+        "利用带上下文规则的属性配置支持灰度、地区策略、黑白名单等场景。",
+        "提供 UI、API 和客户端库，统一供不同服务与团队调用。",
+        "变更历史、权限、审查和回滚也是配置平台的关键能力。"
+      ],
+      "tradeoff": "运行时动态配置降低发版摩擦，却使配置服务的可靠性与审计成为核心要求。",
+      "source": "https://www.uber.com/us/en/blog/flipr/",
+      "date": "2021",
+      "type": "工程博客",
+      "mechanisms": [
+        "Remote config",
+        "Rollouts",
+        "Feature flags"
+      ],
+      "signal": "发布基础设施",
+      "readTime": "10 min"
+    },
+    {
+      "slug": "instagram-recommendations-1000",
+      "company": "Meta",
+      "product": "Instagram",
+      "category": "recommendation",
+      "title": "Journey to 1000 models: Scaling Instagram’s recommendation system",
+      "question": "当推荐系统有上千个模型，真正困难的是什么？",
+      "summary": "Meta 公开 Instagram 如何维护跨 Feed、Stories、Reels 等界面的推荐系统，重点讨论多阶段排序和推理系统的可靠性。",
+      "why": "推荐算法不仅是一个模型，还包括召回、多个排序阶段、模型管理、上线与成本控制。",
+      "points": [
+        "不同产品界面的推荐任务使用多个模型，而不只是单一的首页排名器。",
+        "排序漏斗从候选召回到早期与后期排序，候选规模逐步缩小、计算复杂度逐步增加。",
+        "模型规模和迭代速度需要平台工程提供更强的可靠性与资源治理。"
+      ],
+      "tradeoff": "更多专用模型可以覆盖不同目标，同时也放大部署、监控和推理成本。",
+      "source": "https://engineering.fb.com/2025/05/21/production-engineering/journey-to-1000-models-scaling-instagrams-recommendation-system/",
+      "date": "2025-05-21",
+      "type": "工程博客",
+      "mechanisms": [
+        "Retrieval",
+        "Multi-stage ranking",
+        "Model serving"
+      ],
+      "signal": "推荐系统",
+      "readTime": "12 min"
+    },
+    {
+      "slug": "spotify-two-stacks",
+      "company": "Spotify",
+      "product": "Spotify",
+      "category": "recommendation",
+      "title": "Why We Use Separate Tech Stacks for Personalization and Experimentation",
+      "question": "为什么“推荐系统”和“实验系统”反而应该分开？",
+      "summary": "Spotify 解释在线推荐系统与实验评估在延迟、数据、计算和组织上的不同要求，以及如何让两个技术栈可靠连接。",
+      "why": "这是结构上的一阶决策：不是把功能全部做进大平台，而是辨别哪些目标天然冲突。",
+      "points": [
+        "在线个性化强调低延迟特征、在线推理与持续学习。",
+        "实验评估强调统计正确性、稳定分流和团队可复用的分析工具。",
+        "通过平台间的清晰集成，而不是强行合并，平衡两类系统的目标。"
+      ],
+      "tradeoff": "拆分两个技术栈可分别优化，但需要额外处理实验平台与机器学习平台的集成。",
+      "source": "https://engineering.atspotify.com/2026/01/why-we-use-separate-tech-stacks-for-personalization-and-experimentation",
+      "date": "2026-01-07",
+      "type": "工程博客",
+      "mechanisms": [
+        "Personalization",
+        "Experimentation",
+        "Platform boundaries"
+      ],
+      "signal": "推荐与实验",
+      "readTime": "9 min"
+    },
+    {
+      "slug": "bytedance-monolith",
+      "company": "ByteDance",
+      "product": "BytePlus Recommend",
+      "category": "recommendation",
+      "title": "Monolith: Real Time Recommendation System With Collisionless Embedding Table",
+      "question": "推荐结果怎么跟上用户刚刚发生的行为？",
+      "summary": "字节跳动研究团队提出面向实时反馈的在线推荐训练系统 Monolith，探索嵌入表、在线训练和系统可靠性之间的权衡。",
+      "why": "用一篇系统论文解释短视频类高频反馈场景对训练与服务基础设施提出的独特要求。",
+      "points": [
+        "在线推荐系统需要及时吸收用户反馈，传统完全分离的离线训练与在线服务可能不够灵活。",
+        "论文提出无碰撞 Embedding Table 与过期、频次过滤等机制管理稀疏特征。",
+        "通过在线训练链路与容错设计研究实时性和可靠性的取舍。"
+      ],
+      "tradeoff": "论文披露其应用于 BytePlus Recommend，不应未经证据断言完全等同于抖音/ TikTok 当前生产推荐架构。",
+      "source": "https://arxiv.org/abs/2209.07663",
+      "date": "2022-09-16",
+      "type": "技术论文",
+      "mechanisms": [
+        "Online learning",
+        "Embeddings",
+        "Recommendations"
+      ],
+      "signal": "实时推荐",
+      "readTime": "14 min"
+    },
+    {
+      "slug": "google-spanner",
+      "company": "Google",
+      "product": "Google Spanner",
+      "category": "storage",
+      "title": "Spanner: Google’s Globally-Distributed Database",
+      "question": "全球不同机房里的事务，如何仍然保持一致？",
+      "summary": "Google 的经典论文介绍跨数据中心同步复制、多版本数据库与 TrueTime 时钟不确定性如何共同支撑外部一致性的事务。",
+      "why": "一个把网络延迟、时钟与数据库语义结合起来的标志性元架构，理解强一致系统的取舍非常重要。",
+      "points": [
+        "系统跨多地域复制数据，同时支持具有外部一致性语义的事务。",
+        "TrueTime 通过显式暴露时钟不确定性，辅助实现全局事务排序。",
+        "多版本控制支持历史读取和只读事务。"
+      ],
+      "tradeoff": "同步复制与强一致语义带来更高的时延、基础设施与实现复杂度。",
+      "source": "https://research.google/pubs/spanner-googles-globally-distributed-database-2/",
+      "date": "2012",
+      "type": "研究论文",
+      "mechanisms": [
+        "TrueTime",
+        "Replication",
+        "Transactions"
+      ],
+      "signal": "分布式数据库",
+      "readTime": "18 min"
+    },
+    {
+      "slug": "google-file-system",
+      "company": "Google",
+      "product": "Google Infrastructure",
+      "category": "storage",
+      "title": "The Google File System",
+      "question": "为什么廉价机器组成的集群也能可靠地保存海量数据？",
+      "summary": "Google GFS 的原始论文，从应用负载特点出发重新定义文件系统接口、故障处理方式和数据布局。",
+      "why": "经典的需求驱动架构案例：先接受机器常坏、顺序读写和大文件等现实条件，再设计系统。",
+      "points": [
+        "把普通硬件故障视为常态，而非偶发意外。",
+        "为大规模数据处理优化接口和吞吐模式，而不是照搬传统文件系统的全部假设。",
+        "通过架构级容错降低单机可靠性的要求。"
+      ],
+      "tradeoff": "针对特定工作负载的优秀设计未必适合作为通用桌面文件系统；也不能直接推断为 Google Drive 当前内部实现。",
+      "source": "https://research.google/pubs/the-google-file-system/",
+      "date": "2003",
+      "type": "研究论文",
+      "mechanisms": [
+        "Fault tolerance",
+        "Distributed files",
+        "Workload design"
+      ],
+      "signal": "文件系统",
+      "readTime": "17 min"
+    },
+    {
+      "slug": "openai-harness-engineering",
+      "company": "OpenAI",
+      "product": "OpenAI Codex",
+      "category": "developer",
+      "title": "Harness engineering: leveraging Codex in an agent-first world",
+      "question": "让 Agent 负责写代码之后，人类应该设计什么？",
+      "summary": "OpenAI 分享围绕 Coding Agent 重塑开发环境、验收、反馈与代码仓库约束的做法，把交付的关键转向可验证的执行环境。",
+      "why": "与平台设计、CI、版本控制连接起来看，AI 编程只是更大生产链的一环。",
+      "points": [
+        "工程环境与自动化反馈是 Agent 能稳定完成任务的重要前提。",
+        "将代码约束、测试、审查和运行反馈显式化，减少隐性的人类协作成本。",
+        "评估系统整体的交付质量，而非仅关注生成代码的速度。"
+      ],
+      "tradeoff": "更强的验证与工具链投资需要工程成本，但它们使更高自动化程度成为可能。",
+      "source": "https://openai.com/index/harness-engineering/",
+      "date": "2026-02-11",
+      "type": "工程实践",
+      "mechanisms": [
+        "Agent harness",
+        "CI",
+        "Verification"
+      ],
+      "signal": "开发平台",
+      "readTime": "12 min"
+    },
+    {
+      "slug": "anthropic-source-control",
+      "company": "Anthropic",
+      "product": "Anthropic Engineering",
+      "category": "developer",
+      "title": "Redesigning source control at Anthropic",
+      "question": "当 Agent 大量提交代码，Git 的交付方式会遇到什么边界？",
+      "summary": "Anthropic 介绍在 AI 编程推动的高频变更环境下，为什么重构代码存储和合并的基础设施。",
+      "why": "把 Agent 时代的工程组织问题落到版本控制这种最基础的基础设施上。",
+      "points": [
+        "高频并发更改与合并活动会给传统代码管理与开发流程带来新压力。",
+        "重新设计源代码管理需要兼顾仓库操作、合并队列、CI 与开发者体验。",
+        "架构选择必须从真实工作负载出发，而不是单纯追求替代某个工具。"
+      ],
+      "tradeoff": "自建代码管理平台带来新能力，也意味着长期维护迁移、兼容性和生态成本。",
+      "source": "https://www.anthropic.com/engineering/redesigning-source-control",
+      "date": "2026-10-13",
+      "type": "工程博客",
+      "mechanisms": [
+        "Source control",
+        "Merge workflow",
+        "AI development"
+      ],
+      "signal": "研发基础设施",
+      "readTime": "13 min"
+    },
+    {
+      "slug": "dropbox-nucleus-sync",
+      "company": "Dropbox",
+      "product": "Dropbox",
+      "category": "storage",
+      "title": "Rewriting the heart of our sync engine",
+      "date": "2020-03-09",
+      "source": "https://dropbox.tech/infrastructure/rewriting-the-heart-of-our-sync-engine",
+      "question": "Dropbox 为什么愿意花四年重写文件同步引擎？",
+      "summary": "Dropbox 分享 Nucleus 的重构经验：文件同步的难点不只是传输数据，而是保持本地文件树与云端状态一致，并在网络与文件系统异常时可恢复。",
+      "why": "这篇侧重数据模型和迁移方法，而不是炫耀重写。它解释长期演化的软件如何摆脱历史同步状态的复杂性。",
+      "points": [
+        "旧同步引擎的历史状态和处理分支逐渐积累，团队首先重新梳理系统状态与一致性约束。",
+        "通过更清晰的树状数据模型和可推理的同步行为组织客户端逻辑，减少隐含状态。",
+        "依赖模拟、分阶段迁移与兼容性验证降低重新实现基础能力的风险。"
+      ],
+      "tradeoff": "大规模重写风险很高，只有当旧数据模型持续制造无法局部解决的复杂性且具备迁移验证手段时才可能值得。",
+      "mechanisms": [
+        "Sync Engine",
+        "State Model",
+        "Consistency"
+      ],
+      "signal": "文件同步",
+      "readTime": "13 min",
+      "type": "工程博客",
+      "featured": false
+    },
+    {
+      "slug": "spotify-experimentation-platform",
+      "company": "Spotify",
+      "product": "Spotify",
+      "category": "release",
+      "title": "Spotify’s New Experimentation Platform (Part 1)",
+      "date": "2020-10-29",
+      "source": "https://engineering.atspotify.com/2020/10/spotifys-new-experimentation-platform-part-1",
+      "question": "为什么 Spotify 将 Feature Flag 与 A/B 实验重新拆开？",
+      "summary": "Spotify 淘汰早期 ABBA 实验平台，改用 Remote Configuration、Metrics Catalog 和 Experiment Planner 三部分构成的新实验体系。",
+      "why": "Feature Flag 不只是布尔开关：配置、指标和实验编排的职责边界会直接决定平台可扩展性。",
+      "points": [
+        "Remote Configuration 用有类型的配置属性替代简单开关，可跨客户端与服务端调整实际体验。",
+        "Metrics Catalog 统一指标计算与查询，降低每次实验都重新组织指标管线的成本。",
+        "Experiment Planner 负责实验设计与编排，和配置发放、指标管理形成清晰的职责边界。"
+      ],
+      "tradeoff": "拆分使模块更灵活，但必须解决配置曝光、指标版本和多端参数一致性。",
+      "mechanisms": [
+        "Remote Configuration",
+        "Feature Flags",
+        "A/B Testing"
+      ],
+      "signal": "实验平台",
+      "readTime": "11 min",
+      "type": "工程博客",
+      "featured": false
+    },
+    {
+      "slug": "netflix-open-connect-popularity",
+      "company": "Netflix",
+      "product": "Netflix",
+      "category": "video",
+      "title": "Content Popularity for Open Connect",
+      "date": "2017-06-20",
+      "source": "https://medium.com/netflix-techblog/content-popularity-for-open-connect-b86d56f613b",
+      "question": "Netflix 如何预测哪些影片该提前缓存到用户附近？",
+      "summary": "Netflix Open Connect 团队公开视频热度预测与缓存布局方案：按具体编码文件而不只按影视标题分配边缘存储容量。",
+      "why": "理解 CDN 的核心不只是选缓存算法，而是决定什么才是最有价值的缓存对象。",
+      "points": [
+        "缓存热度同时受到地理区域、观看历史、即将上线内容以及营销活动影响。",
+        "逐文件排序比整部影视标题排序更贴近不同码率与编码版本的真实访问需求。",
+        "团队在 2016 年将大部分集群迁移到按文件热度排名，报告以约一半存储达到原有缓存效率。"
+      ],
+      "tradeoff": "更细粒度的热度预测提高命中率，但需要更丰富的统计、预测和容量规划机制。",
+      "mechanisms": [
+        "Predictive Caching",
+        "CDN",
+        "Video File Popularity"
+      ],
+      "signal": "边缘分发",
+      "readTime": "8 min",
+      "type": "工程博客",
+      "featured": false
+    },
+    {
+      "slug": "instagram-explore-ranking",
+      "company": "Meta",
+      "product": "Instagram",
+      "category": "recommendation",
+      "title": "Scaling the Instagram Explore recommendations system",
+      "date": "2023-08-09",
+      "source": "https://engineering.fb.com/2023/08/09/ml-applications/scaling-instagram-explore-recommendations-system/",
+      "question": "Instagram 怎么在海量内容里实时完成个性化推荐？",
+      "summary": "Meta 介绍 Explore 的多阶段推荐流水线：召回、初排、二排和最终重排，使用双塔模型、预计算和缓存分配推理预算。",
+      "why": "这是理解推荐系统元架构的好文章：计算预算、延迟上限和候选规模的协调比选单个模型更重要。",
+      "points": [
+        "候选检索先以低成本挑选可能相关的内容，避免对全部媒体执行昂贵模型。",
+        "后续多阶段排序逐步使用更精细的模型和特征，最终重排加入产品约束。",
+        "Two-Tower、缓存与预计算配合，使在线请求能处理更复杂的模型而不直接突破延迟预算。"
+      ],
+      "tradeoff": "分阶段系统减少实时计算成本，但会有上游召回质量上限、跨阶段目标协调和缓存新鲜度问题。",
+      "mechanisms": [
+        "Candidate Retrieval",
+        "Multi-stage Ranking",
+        "Two-Tower Model"
+      ],
+      "signal": "推荐排序",
+      "readTime": "12 min",
+      "type": "工程博客",
+      "featured": false
+    },
+    {
+      "slug": "wechat-miniprogram-web-runtime",
+      "company": "Tencent",
+      "product": "WeChat Mini Programs",
+      "category": "runtime",
+      "title": "基于Web内核的微信小程序框架实践",
+      "date": "2022-01-17",
+      "source": "https://cloud.tencent.com/developer/article/1935712",
+      "question": "微信小程序为什么将逻辑层和渲染层分开？",
+      "summary": "微信终端开发团队分享以 Web 内核为基础的小程序框架：独立 JavaScript 逻辑环境、渲染视图、JS 绑定桥接，以及与微信主客户端解耦的扩展思路。",
+      "why": "它讲的是一个嵌入式应用生态的边界：如何隔离用户代码、保留宿主能力，同时让运行时跨设备复用。",
+      "points": [
+        "视图层使用 Web 内核，逻辑层在独立 JS 环境运行，两者通过消息与数据同步接口协作。",
+        "JSAPI 经原生绑定提供特定能力，运行环境需要兼顾隔离、安全与跨端差异。",
+        "文章讨论了从主微信客户端解耦的新框架和向其他设备、小游戏平台拓展的目标。"
+      ],
+      "tradeoff": "多层隔离提高可移植性与安全边界，但引入跨进程/线程通信、渲染性能和宿主兼容性成本；内容是 2022 年讨论的框架实践。",
+      "mechanisms": [
+        "JSBridge",
+        "Logic/View Separation",
+        "Web Runtime"
+      ],
+      "signal": "小程序运行时",
+      "readTime": "12 min",
+      "type": "工程博客",
+      "featured": false
+    },
+    {
+      "slug": "github-git-agent-scale",
+      "company": "GitHub",
+      "product": "GitHub",
+      "category": "developer",
+      "title": "Building Git infrastructure for agent-scale development",
+      "date": "2026-10-06",
+      "source": "https://github.blog/engineering/architecture-optimization/building-git-infrastructure-for-agent-scale-development/",
+      "question": "面对成千上万的 AI Agent，GitHub 为什么继续改造 Git？",
+      "summary": "GitHub 讨论 Agent 引发的高频 Push、热点 Ref 更新、CI 读放大与存储回收问题，提出在 Git 兼容模型下重构基础设施。",
+      "why": "适合和 Anthropic Scion 对读：相似负载下，是维持 Git 语义还是引入更强的集中服务？",
+      "points": [
+        "Agent 循环会频繁创建提交，而 Push 延迟和热门分支写入可能成为新的系统吞吐上限。",
+        "读扩展可以借缓存与副本改善，但写入持久化和全局可见性的协调更难线性扩展。",
+        "GitHub 计划减少不必要的同步协调，保留确实用于保障 Git 语义的协调点，同时重新组织数据耐久和扩展能力。"
+      ],
+      "tradeoff": "该文讨论正在进行的架构演进，不能把设计方向误写成已经全面上线并得到确定性能收益的系统。",
+      "mechanisms": [
+        "Git Write Throughput",
+        "CAS",
+        "Replication"
+      ],
+      "signal": "代码托管",
+      "readTime": "9 min",
+      "type": "工程博客",
+      "featured": false
+    },
+    {
+      "slug": "spotify-app-release-dashboard",
+      "company": "Spotify",
+      "product": "Spotify",
+      "category": "release",
+      "title": "How We Release the Spotify App: A Look Under the Hood (Part 2)",
+      "date": "2026-02-09",
+      "source": "https://www.engineering.atspotify.com/2026/2/how-we-release-the-spotify-app-part-2",
+      "question": "Spotify 怎样把复杂的跨平台发版流程变成可控状态机？",
+      "summary": "Spotify 介绍 Release Manager Dashboard：汇总约十套内部系统的数据，靠缓存与预聚合降低查询成本，并以规则驱动的状态机自动执行部分发布动作。",
+      "why": "一套长期运作的发布机制如何减少运营人员的上下文切换，并保留关键人工决策？",
+      "points": [
+        "Release Manager Dashboard 聚合多源工单、测试、崩溃率和发布状态形成统一的控制界面。",
+        "后端使用缓存与周期性预聚合代替每次交互查询全部系统。",
+        "Release Conductor Robot 根据门禁条件和发布状态自动推进步骤，减少无意义的人工检查。"
+      ],
+      "tradeoff": "自动发布依赖高质量指标和正确的状态迁移规则，仪表盘的“绿色”不能覆盖未监控到的回归。",
+      "mechanisms": [
+        "Release State Machine",
+        "Release Automation",
+        "Quality Gates"
+      ],
+      "signal": "移动端发布",
+      "readTime": "10 min",
+      "type": "工程博客",
+      "featured": false
+    },
+    {
+      "slug": "spotify-quality-higher-velocity",
+      "company": "Spotify",
+      "product": "Spotify",
+      "category": "release",
+      "title": "AI Changed How Spotify Builds. What We Learned (and Fixed) About Quality at Higher Velocity",
+      "date": "2026-09-16",
+      "source": "https://www.engineering.atspotify.com/2026/9/ai-changed-how-spotify-builds-what-we-learned-and-fixed-about-quality-at-higher-velocity",
+      "question": "代码交付更快后，Spotify 如何让质量体系跟上？",
+      "summary": "Spotify 公开内容处理、移动端体验与内部平台的可靠性复盘。问题不在“所有 AI 代码都有缺陷”，而在变更速度放大了原有监控、容量和回滚缺口。",
+      "why": "对 Agent 时代的工程系统而言，独特价值是用生产事故和质量指标反推治理系统，而不是只统计代码提交量。",
+      "points": [
+        "新内容转码流水线中的任务优先级、计算容量和调度缺陷曾共同造成延迟。",
+        "扩大端到端告警覆盖，调整批任务优先级与容量，避免正常用户内容受到挤占。",
+        "采用长期回归趋势、重做 Rework Rate 口径，并强化灰度、观测、回滚与质量门禁。"
+      ],
+      "tradeoff": "更高的开发速度要求更强的验证能力；文章没有证明所有质量问题都由 AI 产生。",
+      "mechanisms": [
+        "Capacity Planning",
+        "SLO",
+        "Quality Gates"
+      ],
+      "signal": "可靠性复盘",
+      "readTime": "12 min",
+      "type": "工程博客",
+      "featured": false
+    },
+    {
+      "slug": "stripe-online-migrations",
+      "company": "Stripe",
+      "product": "Stripe Billing",
+      "category": "storage",
+      "title": "Online migrations at scale",
+      "date": "2017-02-02",
+      "source": "https://stripe.com/blog/online-migrations",
+      "question": "Stripe 如何不停机迁移数亿条订阅记录？",
+      "summary": "Stripe 展示四阶段在线迁移：双写、对照读、切换写入、清除旧数据，期间使用离线快照回填与影子校验避免停机。",
+      "why": "经典案例在于数据模型变更不是一次部署，而是跨越版本、操作和回退路径的渐进式协议。",
+      "points": [
+        "先双写新旧数据表并从离线数据库快照识别需要回填的记录。",
+        "使用影子读取比较新旧结果，以实验框架检测差异后逐步切换读路径。",
+        "写路径分批迁往新表，持续验证一致性，最后再移除已过时的旧数据。"
+      ],
+      "tradeoff": "双写与回填提高了迁移期的复杂度；没有全链路校验与可回退计划就可能扩大数据不一致。",
+      "mechanisms": [
+        "Dual Write",
+        "Backfill",
+        "Shadow Reads"
+      ],
+      "signal": "在线数据迁移",
+      "readTime": "12 min",
+      "type": "工程博客",
+      "featured": false
+    },
+    {
+      "slug": "stripe-ledger-money-movement",
+      "company": "Stripe",
+      "product": "Stripe Payments",
+      "category": "finance",
+      "title": "Ledger: Stripe’s system for tracking and validating money movement",
+      "date": "2024-02-16",
+      "source": "https://stripe.com/blog/ledger-stripe-system-for-tracking-and-validating-money-movement",
+      "question": "Stripe 如何证明跨多个支付系统的资金流没有丢失？",
+      "summary": "Stripe 的 Ledger 将来自多个支付和银行系统的事件映射成不可变的资金流及状态转换，再由数据质量平台校验完整性与清算结果。",
+      "why": "与单纯的支付处理不同，它聚焦“跨系统正确性”：即使上下游数据不一致，也能解释发生了什么。",
+      "points": [
+        "把不同生产系统的金融事件统一建模为账户之间的状态转换和资金流。",
+        "不可变事件日志保留历史，为审计、重放和定位异常提供基础。",
+        "数据质量平台将清算、时效性与完整性指标整合为可定位的错误检测与处理流程。"
+      ],
+      "tradeoff": "抽象统一能改善全局可观测性，但无法消除外部机构报告错误、晚到数据与现实业务的不完美。",
+      "mechanisms": [
+        "Immutable Ledger",
+        "Double-entry Bookkeeping",
+        "Data Quality"
+      ],
+      "signal": "支付与账务",
+      "readTime": "14 min",
+      "type": "工程博客",
+      "featured": false
+    },
+    {
+      "slug": "cloudflare-waiting-room",
+      "company": "Cloudflare",
+      "product": "Cloudflare Waiting Room",
+      "category": "traffic",
+      "title": "Building Waiting Room on Workers and Durable Objects",
+      "date": "2021-06-16",
+      "source": "https://blog.cloudflare.com/building-waiting-room-on-workers-and-durable-objects/",
+      "question": "流量突然爆发时，Cloudflare 如何给用户有序排队？",
+      "summary": "Cloudflare 基于 Workers 和 Durable Objects 搭建 Waiting Room，在靠近用户的边缘节点控制进入源站的请求，并以逻辑隔离的协调对象聚合队列状态。",
+      "why": "它展示了边缘平台怎样在全球分布的低延迟请求与共享资源限制之间取得平衡。",
+      "points": [
+        "Workers 在请求入口判断进入网站或等待室，降低流量洪峰直达源站的风险。",
+        "Durable Objects 汇总来自多个边缘入口的计数，并围绕等待室做逻辑隔离。",
+        "将不同客户的资源配额与协调域分开，缩小单一热点请求对其他队列的影响。"
+      ],
+      "tradeoff": "边缘排队可以削峰，但请求分布、计数的新鲜度和全局公平性仍需专门处理。",
+      "mechanisms": [
+        "Durable Objects",
+        "Rate Limiting",
+        "Edge Coordination"
+      ],
+      "signal": "边缘限流",
+      "readTime": "13 min",
+      "type": "工程博客",
+      "featured": false
+    },
+    {
+      "slug": "meta-tao-social-graph",
+      "company": "Meta",
+      "product": "Facebook",
+      "category": "storage",
+      "title": "TAO: The power of the graph",
+      "date": "2013-06-25",
+      "source": "https://engineering.fb.com/2013/06/25/core-infra/tao-the-power-of-the-graph/",
+      "question": "Facebook 为什么为社交图单独设计 TAO？",
+      "summary": "Meta 前身 Facebook 公开 TAO 如何在 MySQL 之上通过缓存、关联对象抽象和多区域部署读取海量社交关系。",
+      "why": "这是数据访问模式决定基础设施抽象的经典案例：不是所有数据都适合按传统关系查询读取。",
+      "points": [
+        "将对象和边关联建模为常见的社交数据访问原语，支持高频邻接关系读取。",
+        "在底层数据库前构建专门的缓存层，避免热点关联导致大量随机数据库访问。",
+        "跨区域架构同时考虑读取延迟和变化传播，把可用性与一致性取舍显式化。"
+      ],
+      "tradeoff": "2013 年披露的是历史系统快照，不能视为 Meta 今日所有图数据系统的完整结构。",
+      "mechanisms": [
+        "Graph Storage",
+        "Cache Hierarchy",
+        "Sharding"
+      ],
+      "signal": "社交图",
+      "readTime": "12 min",
+      "type": "工程博客",
+      "featured": false
+    },
+    {
+      "slug": "meta-data-ingestion-migration",
+      "company": "Meta",
+      "product": "Meta Data Infrastructure",
+      "category": "storage",
+      "title": "Migrating Data Ingestion Systems at Meta Scale",
+      "date": "2026-05-12",
+      "source": "https://engineering.fb.com/2026/05/12/data-infrastructure/migrating-data-ingestion-systems-at-meta-scale/",
+      "question": "Meta 如何迁移每天摄入数 PB 数据的平台而不打断下游？",
+      "summary": "Meta 将旧的客户自管理数据摄入管线转为由数据仓库团队维护的服务，披露批量迁移、验证和操作协调中的关键问题。",
+      "why": "迁移一个系统时，最难的可能不是目标架构，而是如何安全迁移已有大量负载与用户依赖。",
+      "points": [
+        "来自超大规模 MySQL 社交图的数据持续增量进入数仓，迁移过程必须满足下游时效。",
+        "由分散管理管线转向中心化托管服务，减少重复运营与平台复杂度。",
+        "通过批次化迁移、校验与观察机制验证新旧路径的正确性与可用性。"
+      ],
+      "tradeoff": "集中管理降低业务团队维护负担，但可能引入平台级故障域和统一服务的容量调度挑战。",
+      "mechanisms": [
+        "Data Ingestion",
+        "Incremental Migration",
+        "Pipeline Verification"
+      ],
+      "signal": "数据平台",
+      "readTime": "12 min",
+      "type": "工程博客",
+      "featured": false
+    },
+    {
+      "slug": "meta-haystack-photos",
+      "company": "Meta",
+      "product": "Facebook Photos",
+      "category": "storage",
+      "title": "Needle in a haystack: efficient storage of billions of photos",
+      "date": "2009-04-30",
+      "source": "https://engineering.fb.com/2009/04/30/core-infra/needle-in-a-haystack-efficient-storage-of-billions-of-photos/",
+      "question": "数百亿张图片，为什么不能直接各存一个文件？",
+      "summary": "Facebook 早期 Haystack 系统将大量照片合并到对象存储里，减少传统 NFS 大量文件的 inode/目录元数据查询导致的额外 I/O。",
+      "why": "这是“改变数据布局比加机器更有效”的经典案例，特别适合对照 Dropbox Magic Pocket。",
+      "points": [
+        "早期一张图片一个文件的做法使海量 inode 和目录元数据超过缓存能力。",
+        "Haystack 将图片内容组织为容器化对象，尽量减少单张图片读取的元数据 I/O。",
+        "结合 HTTP 服务和空间管理，使存储层更贴近按图片 ID 读取的实际访问模式。"
+      ],
+      "tradeoff": "这些是 2009 年的历史规模与设计，不应把 Haystack 作为 Meta 当前所有照片存储的唯一实现。",
+      "mechanisms": [
+        "Object Storage",
+        "Metadata Overhead",
+        "Large Container Files"
+      ],
+      "signal": "海量图片",
+      "readTime": "11 min",
+      "type": "工程博客",
+      "featured": false
+    },
+    {
+      "slug": "spotify-generative-inference",
+      "company": "Spotify",
+      "product": "Spotify",
+      "category": "recommendation",
+      "title": "Advancing Generative Recommendation Inference: our collaboration with NVIDIA on TensorRT LLM",
+      "date": "2026-10-16",
+      "source": "https://engineering.atspotify.com/2026/10/advancing-generative-recommendation-inference-our-collaboration-with-nvidia-on-tensorrt-llm",
+      "question": "Spotify 如何把生成式推荐推理从实验推进到可规模化服务？",
+      "summary": "Spotify 与 NVIDIA 分享个性化语言模型的推理需求，以及 TensorRT-LLM 在 Beam Search、评分与用户输入嵌入支持上的工程改造。",
+      "why": "当推荐模型改变时，模型服务器的 API 能力、GPU 利用率和延迟成本也必须一起重新评估。",
+      "points": [
+        "传统推荐的多级候选排序逐渐增加了实时生成式模型推理的应用场景。",
+        "Spotify 需要 Beam Search、多候选打分与用户软 Token 特性，原有推理引擎间存在功能覆盖差异。",
+        "与 NVIDIA 合作扩展 TensorRT-LLM 的接口及采样实现，推动统一推理栈并改善 GPU 资源利用。"
+      ],
+      "tradeoff": "文章同时讨论已上线的播客推荐与进一步探索的广泛推理系统，不能断言所有 Spotify 推荐业务都采用这一新架构。",
+      "mechanisms": [
+        "LLM Inference",
+        "Beam Search",
+        "GPU Scheduling"
+      ],
+      "signal": "生成式推荐",
+      "readTime": "11 min",
+      "type": "工程博客",
+      "featured": false
+    },
+    {
+      "slug": "github-star-history-api",
+      "company": "GitHub",
+      "product": "GitHub API",
+      "category": "search",
+      "title": "From 2,500 requests to 24: Rebuilding star history without the stargazers",
+      "date": "2026-10-14",
+      "source": "https://github.blog/engineering/architecture-optimization/from-2500-requests-to-24-rebuilding-star-history-without-the-stargazers/",
+      "question": "GitHub 如何让 Star 趋势查询不再读取每个用户的信息？",
+      "summary": "GitHub 重构仓库 Star History 接口，以聚合计数替代批量用户身份列表，减少查询成本和被滥用的隐私暴露面。",
+      "why": "极佳的数据抽象案例：用户真正想知道趋势时，为什么让 API 返回大量原始用户记录？",
+      "points": [
+        "原有调用通过分页获取每个 Stargazer 的时间与身份，客户端再自行计算趋势。",
+        "将统计目标改为时间序列聚合，避免 API 对查询方暴露不需要的身份信息。",
+        "文章对比实现前后的请求数量与查询成本，说明专门的数据模型如何消除不必要的工作。"
+      ],
+      "tradeoff": "聚合数据提高效率和隐私性，但不再适合需要逐人审计或细粒度事件分析的应用场景。",
+      "mechanisms": [
+        "Aggregation API",
+        "Data Minimization",
+        "Query Efficiency"
+      ],
+      "signal": "API 设计",
+      "readTime": "8 min",
+      "type": "工程博客",
+      "featured": false
+    }
+  ],
+  "papers": [
+    {
+      "id": "monolith-online-recommendation",
+      "title": "Monolith: Real Time Recommendation System With Collisionless Embedding Table",
+      "authors": "Zhuoran Liu et al.",
+      "year": "2022",
+      "arxiv": "2209.07663",
+      "category": "recommendation",
+      "question": "实时反馈能否直接改变在线推荐模型？",
+      "summary": "研究专用于在线训练的推荐系统，提出无碰撞 Embedding 表、过期管理与容错架构；论文明确提到在 BytePlus Recommend 应用。",
+      "takeaways": [
+        "高维稀疏特征需要独立于通用密集张量框架的设计考量。",
+        "频率过滤、Embedding 过期与在线训练共同构成工程权衡。",
+        "实时更新与系统可用性之间需要明确取舍。"
+      ],
+      "related_case": "bytedance-monolith",
+      "status": "研究论文；文中明确报告 BytePlus Recommend 落地，不代表抖音现行线上细节"
+    },
+    {
+      "id": "wide-deep-recommender",
+      "title": "Wide & Deep Learning for Recommender Systems",
+      "authors": "Heng-Tze Cheng et al.",
+      "year": "2016",
+      "arxiv": "1606.07792",
+      "category": "recommendation",
+      "question": "推荐系统为什么同时需要记忆和泛化？",
+      "summary": "提出 Wide & Deep 联合训练方案，并公开了在 Google Play 应用推荐中的实验背景。",
+      "takeaways": [
+        "线性记忆组件可学习频繁共同出现的特征组合。",
+        "神经网络组件将稀疏特征映射到 Embedding 空间，以处理未见组合。",
+        "需要在推荐相关性、模型容量与在线服务成本间权衡。"
+      ],
+      "related_case": "instagram-recommendations-1000",
+      "status": "论文包含 Google Play 的实验报告；关联 Instagram 仅用于比较推荐领域，不代表后者采用该方案"
+    },
+    {
+      "id": "paxos-vs-raft",
+      "title": "Paxos vs Raft: Have we reached consensus on distributed consensus?",
+      "authors": "Heidi Howard, Richard Mortier",
+      "year": "2020",
+      "arxiv": "2004.05074",
+      "category": "storage",
+      "question": "Raft 和 Paxos 真正不同的设计前提是什么？",
+      "summary": "比较两个经典分布式共识协议，分析领导者选择与日志约束如何影响可理解性和工程实现。",
+      "takeaways": [
+        "共识协议要区分安全性与活性目标。",
+        "论文突出二者的领导者选择策略差异。",
+        "不能把协议上的分析直接等同于特定产品的生产实践。"
+      ],
+      "related_case": "google-file-system",
+      "status": "理论比较；关联 GFS 仅用于同领域延伸阅读，不代表 GFS 使用 Raft 或 Paxos"
+    }
+  ],
+  "terms": [
+    {
+      "id": "feature-flags",
+      "name": "Feature Flags",
+      "aliases": [
+        "Feature Flag",
+        "Feature flags",
+        "feature flag",
+        "feature flags"
+      ],
+      "zh": "特性开关",
+      "definition": "通过配置而非重新发布控制某项能力是否可用。",
+      "category": "release"
+    },
+    {
+      "id": "progressive-rollout",
+      "name": "Progressive Rollout",
+      "aliases": [
+        "Rollout",
+        "Rollouts",
+        "rollout",
+        "灰度发布"
+      ],
+      "zh": "渐进式发布",
+      "definition": "逐步扩大新版本或功能的覆盖范围，并结合指标触发继续、暂停或回滚。",
+      "category": "release"
+    },
+    {
+      "id": "ab-testing",
+      "name": "A/B Testing",
+      "aliases": [
+        "A/B",
+        "A/B Testing",
+        "实验分流",
+        "A/B test"
+      ],
+      "zh": "对照实验",
+      "definition": "将流量分配到不同实验条件，用测量结果评估产品或系统变化。",
+      "category": "release"
+    },
+    {
+      "id": "transcoding",
+      "name": "Transcoding",
+      "aliases": [
+        "Transcoding",
+        "transcoding",
+        "转码"
+      ],
+      "zh": "转码",
+      "definition": "将媒体数据从一种编码、质量或封装形式转换为另一种形式。",
+      "category": "video"
+    },
+    {
+      "id": "cdn",
+      "name": "CDN",
+      "aliases": [
+        "CDN",
+        "Content Delivery Network"
+      ],
+      "zh": "内容分发网络",
+      "definition": "通过地理分布的缓存与分发节点，让内容接近终端用户。",
+      "category": "video"
+    },
+    {
+      "id": "erasure-coding",
+      "name": "Erasure Coding",
+      "aliases": [
+        "Erasure coding",
+        "erasure coding",
+        "纠删码"
+      ],
+      "zh": "纠删码",
+      "definition": "使用冗余编码分片恢复丢失的数据，在容错与空间效率之间做权衡。",
+      "category": "storage"
+    },
+    {
+      "id": "immutable-storage",
+      "name": "Immutable Storage",
+      "aliases": [
+        "Immutable blocks",
+        "Immutable storage",
+        "immutable",
+        "不可变块",
+        "不可变存储"
+      ],
+      "zh": "不可变存储",
+      "definition": "写入后不原位改写数据内容，变更由新对象和元数据层表达。",
+      "category": "storage"
+    },
+    {
+      "id": "compaction",
+      "name": "Compaction",
+      "aliases": [
+        "Compaction",
+        "compaction"
+      ],
+      "zh": "压实",
+      "definition": "将分散的有效数据重新组织，回收空间或优化读取布局。",
+      "category": "storage"
+    },
+    {
+      "id": "sharding",
+      "name": "Sharding",
+      "aliases": [
+        "Sharding",
+        "sharding",
+        "Index sharding",
+        "分片"
+      ],
+      "zh": "分片",
+      "definition": "将数据或索引分配到多个分区，平衡容量、吞吐和故障域。",
+      "category": "storage"
+    },
+    {
+      "id": "websocket",
+      "name": "WebSocket",
+      "aliases": [
+        "WebSocket",
+        "WebSockets",
+        "Websocket"
+      ],
+      "zh": "双向连接",
+      "definition": "客户端和服务端保持持久双向通信，用于协作与实时通知等场景。",
+      "category": "collaboration"
+    },
+    {
+      "id": "crdt",
+      "name": "CRDT",
+      "aliases": [
+        "CRDT",
+        "CRDTs"
+      ],
+      "zh": "无冲突复制数据类型",
+      "definition": "能在特定条件下让多副本并发更新最终收敛的一类数据结构。",
+      "category": "collaboration"
+    },
+    {
+      "id": "conflict-resolution",
+      "name": "Conflict Resolution",
+      "aliases": [
+        "Conflict resolution",
+        "conflict resolution",
+        "冲突解决"
+      ],
+      "zh": "冲突解决",
+      "definition": "并发修改影响同一状态时，系统如何定义一致且可解释的结果。",
+      "category": "collaboration"
+    },
+    {
+      "id": "retrieval",
+      "name": "Retrieval",
+      "aliases": [
+        "Retrieval",
+        "retrieval",
+        "候选召回"
+      ],
+      "zh": "召回",
+      "definition": "从大规模候选集合中筛选较小候选池，再交由更复杂的排序处理。",
+      "category": "recommendation"
+    },
+    {
+      "id": "model-serving",
+      "name": "Model Serving",
+      "aliases": [
+        "Model serving",
+        "model serving",
+        "在线推理"
+      ],
+      "zh": "模型服务",
+      "definition": "将训练好的模型作为在线服务部署，处理延迟、资源分配和版本管理。",
+      "category": "recommendation"
+    },
+    {
+      "id": "online-learning",
+      "name": "Online Learning",
+      "aliases": [
+        "Online training",
+        "online training",
+        "在线学习",
+        "在线训练"
+      ],
+      "zh": "在线学习",
+      "definition": "持续吸收新的反馈信号，使模型更快适应变化；同时带来稳定性挑战。",
+      "category": "recommendation"
+    },
+    {
+      "id": "vmaf",
+      "name": "VMAF",
+      "aliases": [
+        "VMAF"
+      ],
+      "zh": "视频多方法评价融合",
+      "definition": "Netflix 推动开发的感知视频质量评价指标，用于比较编码方案的观看质量。",
+      "category": "video"
+    },
+    {
+      "id": "consensus",
+      "name": "Consensus",
+      "aliases": [
+        "Consensus",
+        "consensus",
+        "分布式共识"
+      ],
+      "zh": "共识",
+      "definition": "使多个节点在故障和并发条件下就某个状态或操作顺序达成一致。",
+      "category": "storage"
+    },
+    {
+      "id": "harness",
+      "name": "Agent Harness",
+      "aliases": [
+        "Harness",
+        "harness"
+      ],
+      "zh": "Agent 执行框架",
+      "definition": "围绕 Agent 的工具、执行环境、反馈与验证建立可管理的工作流程。",
+      "category": "developer"
+    },
+    {
+      "id": "sync-engine",
+      "name": "Sync Engine",
+      "aliases": [
+        "File Sync"
+      ],
+      "zh": "同步引擎",
+      "definition": "维持本地文件树和远端状态一致，并在异常后恢复的客户端/服务端协作机制。",
+      "category": "storage"
+    },
+    {
+      "id": "predictive-caching",
+      "name": "Predictive Caching",
+      "aliases": [
+        "Popularity Forecasting"
+      ],
+      "zh": "预测式缓存",
+      "definition": "提前根据地域、历史和预测热度，把可能访问的内容放置在更近的缓存中。",
+      "category": "video"
+    },
+    {
+      "id": "multi-stage-ranking",
+      "name": "Multi-stage Ranking",
+      "aliases": [
+        "Cascade Ranking"
+      ],
+      "zh": "多阶段排序",
+      "definition": "通过逐级筛选候选并分配不同计算预算，在召回质量与请求延迟之间做取舍。",
+      "category": "recommendation"
+    },
+    {
+      "id": "jsbridge",
+      "name": "JSBridge",
+      "aliases": [
+        "JS Bridge"
+      ],
+      "zh": "JavaScript 桥接",
+      "definition": "在受控 JS 运行环境与原生宿主能力之间传递消息与调用结果的接口层。",
+      "category": "runtime"
+    },
+    {
+      "id": "dual-write",
+      "name": "Dual Write",
+      "aliases": [
+        "Dual Writing"
+      ],
+      "zh": "双写",
+      "definition": "迁移期间将同一业务变化写入新旧两个数据系统，需配合校验和故障处理。",
+      "category": "storage"
+    },
+    {
+      "id": "shadow-read",
+      "name": "Shadow Read",
+      "aliases": [
+        "Shadow Reads"
+      ],
+      "zh": "影子读",
+      "definition": "对新旧读路径执行并行比对，但只把已验证的主路径结果返回给用户。",
+      "category": "storage"
+    },
+    {
+      "id": "immutable-ledger",
+      "name": "Immutable Ledger",
+      "aliases": [
+        "Append-only Log"
+      ],
+      "zh": "不可变账本",
+      "definition": "以仅追加方式保留金融事件与状态变迁，用于审计和重新构建历史状态。",
+      "category": "finance"
+    },
+    {
+      "id": "double-entry",
+      "name": "Double-entry Bookkeeping",
+      "aliases": [
+        "Double Entry"
+      ],
+      "zh": "复式记账",
+      "definition": "每次资金移动需要对应借贷记录的会计不变量，用来验证整体余额守恒。",
+      "category": "finance"
+    },
+    {
+      "id": "durable-objects",
+      "name": "Durable Objects",
+      "aliases": [
+        "Durable Object"
+      ],
+      "zh": "持久对象",
+      "definition": "Cloudflare 提供的具位置和状态属性的协调原语，用于聚合共享状态和隔离资源。",
+      "category": "traffic"
+    },
+    {
+      "id": "release-state-machine",
+      "name": "Release State Machine",
+      "aliases": [
+        "Release State"
+      ],
+      "zh": "发布状态机",
+      "definition": "用有限状态、守卫条件和动作编排应用发版过程，避免状态转换失序。",
+      "category": "release"
+    },
+    {
+      "id": "git-ref",
+      "name": "Git Reference",
+      "aliases": [
+        "Git Ref"
+      ],
+      "zh": "Git 引用",
+      "definition": "分支或标签指向仓库对象的命名引用；热点分支并发更新需要保证一致性。",
+      "category": "developer"
+    },
+    {
+      "id": "capacity-planning",
+      "name": "Capacity Planning",
+      "aliases": [
+        "Capacity Planning"
+      ],
+      "zh": "容量规划",
+      "definition": "估计系统在峰值、增长与故障期间需要的计算、队列和存储能力。",
+      "category": "traffic"
+    },
+    {
+      "id": "graph-storage",
+      "name": "Graph Storage",
+      "aliases": [
+        "Association Store"
+      ],
+      "zh": "图关系存储",
+      "definition": "面向实体及其关联关系的存取模型，常为频繁邻接查询单独优化。",
+      "category": "storage"
+    },
+    {
+      "id": "data-ingestion",
+      "name": "Data Ingestion",
+      "aliases": [
+        "Ingestion Pipeline"
+      ],
+      "zh": "数据摄入",
+      "definition": "将操作系统或业务数据库的变更持续导入下游分析、训练或报告系统。",
+      "category": "storage"
+    },
+    {
+      "id": "metadata-overhead",
+      "name": "Metadata Overhead",
+      "aliases": [
+        "Inode Metadata"
+      ],
+      "zh": "元数据开销",
+      "definition": "文件的目录、索引、inode 等信息占用 I/O 和缓存资源，可能成为存储性能瓶颈。",
+      "category": "storage"
+    },
+    {
+      "id": "llm-inference",
+      "name": "LLM Inference",
+      "aliases": [
+        "Model Inference"
+      ],
+      "zh": "大模型推理服务",
+      "definition": "在在线时延和成本约束下执行模型推断并协调批处理、采样与 GPU 资源。",
+      "category": "recommendation"
+    },
+    {
+      "id": "aggregation-api",
+      "name": "Aggregation API",
+      "aliases": [
+        "Aggregate API"
+      ],
+      "zh": "聚合接口",
+      "definition": "API 直接返回汇总统计而不是大量原始事件记录，降低请求成本与数据泄漏风险。",
+      "category": "search"
+    }
+  ],
+  "relations": [
+    {
+      "term": "feature-flags",
+      "case": "uber-ab-platform",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "feature-flags",
+      "case": "uber-flipr",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "progressive-rollout",
+      "case": "uber-flipr",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "ab-testing",
+      "case": "uber-ab-platform",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "ab-testing",
+      "case": "uber-flipr",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "transcoding",
+      "case": "youtube-video-infrastructure",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "transcoding",
+      "case": "netflix-shot-based-encoding",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "erasure-coding",
+      "case": "dropbox-magic-pocket",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "immutable-storage",
+      "case": "dropbox-magic-pocket",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "immutable-storage",
+      "case": "dropbox-storage-compaction",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "compaction",
+      "case": "dropbox-storage-compaction",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "sharding",
+      "case": "discord-trillion-message-storage",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "sharding",
+      "case": "discord-message-indexing",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "websocket",
+      "case": "figma-multiplayer",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "conflict-resolution",
+      "case": "figma-multiplayer",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "retrieval",
+      "case": "instagram-recommendations-1000",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "model-serving",
+      "case": "instagram-recommendations-1000",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "model-serving",
+      "case": "spotify-two-stacks",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "online-learning",
+      "case": "bytedance-monolith",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "vmaf",
+      "case": "netflix-shot-based-encoding",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "harness",
+      "case": "openai-harness-engineering",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "sync-engine",
+      "case": "dropbox-nucleus-sync",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "conflict-resolution",
+      "case": "dropbox-nucleus-sync",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "feature-flags",
+      "case": "spotify-experimentation-platform",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "ab-testing",
+      "case": "spotify-experimentation-platform",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "progressive-rollout",
+      "case": "spotify-experimentation-platform",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "predictive-caching",
+      "case": "netflix-open-connect-popularity",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "cdn",
+      "case": "netflix-open-connect-popularity",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "retrieval",
+      "case": "instagram-explore-ranking",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "model-serving",
+      "case": "instagram-explore-ranking",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "multi-stage-ranking",
+      "case": "instagram-explore-ranking",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "jsbridge",
+      "case": "wechat-miniprogram-web-runtime",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "git-ref",
+      "case": "github-git-agent-scale",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "release-state-machine",
+      "case": "spotify-app-release-dashboard",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "progressive-rollout",
+      "case": "spotify-app-release-dashboard",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "capacity-planning",
+      "case": "spotify-quality-higher-velocity",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "release-state-machine",
+      "case": "spotify-quality-higher-velocity",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "dual-write",
+      "case": "stripe-online-migrations",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "shadow-read",
+      "case": "stripe-online-migrations",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "immutable-ledger",
+      "case": "stripe-ledger-money-movement",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "double-entry",
+      "case": "stripe-ledger-money-movement",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "durable-objects",
+      "case": "cloudflare-waiting-room",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "capacity-planning",
+      "case": "cloudflare-waiting-room",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "graph-storage",
+      "case": "meta-tao-social-graph",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "sharding",
+      "case": "meta-tao-social-graph",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "data-ingestion",
+      "case": "meta-data-ingestion-migration",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "metadata-overhead",
+      "case": "meta-haystack-photos",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "llm-inference",
+      "case": "spotify-generative-inference",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "model-serving",
+      "case": "spotify-generative-inference",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "aggregation-api",
+      "case": "github-star-history-api",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "storage",
+      "label": "存储与数据",
+      "english": "Storage & data",
+      "description": "对象存储 / 同步 / 数据库"
+    },
+    {
+      "id": "video",
+      "label": "音视频系统",
+      "english": "Video & media",
+      "description": "转码 / 带宽 / 传输"
+    },
+    {
+      "id": "recommendation",
+      "label": "推荐与个性化",
+      "english": "Recommendation",
+      "description": "召回 / 排序 / 在线学习"
+    },
+    {
+      "id": "collaboration",
+      "label": "实时协作与通信",
+      "english": "Collaboration",
+      "description": "同步 / 消息 / 冲突处理"
+    },
+    {
+      "id": "release",
+      "label": "发布、实验与交付",
+      "english": "Delivery & experiments",
+      "description": "CI/CD / Feature Flags / A/B"
+    },
+    {
+      "id": "search",
+      "label": "搜索与索引",
+      "english": "Search & discovery",
+      "description": "检索 / 索引 / 查询延迟"
+    },
+    {
+      "id": "developer",
+      "label": "Agent 与开发平台",
+      "english": "Developer platforms",
+      "description": "Harness / 代码管理 / 验证"
+    },
+    {
+      "id": "runtime",
+      "label": "客户端与运行时",
+      "english": "Client runtime",
+      "description": "小程序 / 沙箱 / 跨端引擎"
+    },
+    {
+      "id": "finance",
+      "label": "支付与账务",
+      "english": "Payments & ledgers",
+      "description": "资金流 / 不可变账本 / 清算"
+    },
+    {
+      "id": "traffic",
+      "label": "边缘流量与可靠性",
+      "english": "Traffic & reliability",
+      "description": "排队 / 限流 / 容量规划"
+    }
+  ],
+  "products": [
+    {
+      "id": "dropbox",
+      "name": "Dropbox",
+      "description": "文件存储、同步与版本演进"
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube",
+      "description": "视频转码与媒体基础设施"
+    },
+    {
+      "id": "netflix",
+      "name": "Netflix",
+      "description": "流媒体编码与播放质量"
+    },
+    {
+      "id": "figma",
+      "name": "Figma",
+      "description": "多人编辑与实时同步"
+    },
+    {
+      "id": "discord",
+      "name": "Discord",
+      "description": "海量消息存储与搜索"
+    },
+    {
+      "id": "uber",
+      "name": "Uber",
+      "description": "实验平台、Feature Flags 与发布"
+    },
+    {
+      "id": "instagram",
+      "name": "Instagram",
+      "description": "多阶段推荐系统与模型服务"
+    },
+    {
+      "id": "spotify",
+      "name": "Spotify",
+      "description": "个性化与实验系统"
+    },
+    {
+      "id": "byteplus-recommend",
+      "name": "BytePlus Recommend",
+      "description": "实时推荐模型与在线训练"
+    },
+    {
+      "id": "google-spanner",
+      "name": "Google Spanner",
+      "description": "全球一致的分布式数据库"
+    },
+    {
+      "id": "google-infrastructure",
+      "name": "Google Infrastructure",
+      "description": "文件系统与容错机制"
+    },
+    {
+      "id": "openai-codex",
+      "name": "OpenAI Codex",
+      "description": "Agent 编程与工程 Harness"
+    },
+    {
+      "id": "anthropic-engineering",
+      "name": "Anthropic Engineering",
+      "description": "AI 编程时代的版本控制"
+    },
+    {
+      "id": "facebook",
+      "name": "Facebook",
+      "description": "社交图服务与读性能"
+    },
+    {
+      "id": "facebook-photos",
+      "name": "Facebook Photos",
+      "description": "图片元数据与对象存储"
+    },
+    {
+      "id": "meta-data-infrastructure",
+      "name": "Meta Data Infrastructure",
+      "description": "数据摄入及大规模迁移"
+    },
+    {
+      "id": "wechat-mini-programs",
+      "name": "WeChat Mini Programs",
+      "description": "小程序运行时与 JSBridge"
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "description": "Agent 规模的 Git 承载"
+    },
+    {
+      "id": "github-api",
+      "name": "GitHub API",
+      "description": "聚合接口与查询效率"
+    },
+    {
+      "id": "stripe-billing",
+      "name": "Stripe Billing",
+      "description": "在线无停机迁移"
+    },
+    {
+      "id": "stripe-payments",
+      "name": "Stripe Payments",
+      "description": "资金流水与数据质量"
+    },
+    {
+      "id": "cloudflare-waiting-room",
+      "name": "Cloudflare Waiting Room",
+      "description": "流量准入和排队控制"
+    },
+    {
+      "id": "telegram",
+      "name": "Telegram",
+      "description": "即时通讯、群组与频道"
+    },
+    {
+      "id": "arc",
+      "name": "Arc",
+      "description": "空间与侧边栏标签管理"
+    },
+    {
+      "id": "dia",
+      "name": "Dia",
+      "description": "结合 AI 的浏览器"
+    },
+    {
+      "id": "netease-cloud-music",
+      "name": "NetEase Cloud Music",
+      "description": "网易云音乐 · 音乐播放与歌单"
+    },
+    {
+      "id": "zen",
+      "name": "Zen",
+      "description": "工作区与分屏浏览"
+    },
+    {
+      "id": "zed",
+      "name": "Zed",
+      "description": "代码编辑与实时协作"
+    },
+    {
+      "id": "threads",
+      "name": "Threads",
+      "description": "文字分享与社交讨论"
+    },
+    {
+      "id": "x-twitter",
+      "name": "X (Twitter)",
+      "description": "实时信息与社交讨论"
+    }
+  ],
+  "comparisons": [
+    {
+      "id": "video-processing",
+      "category": "video",
+      "title": "视频处理：转码效率与画质",
+      "case_ids": [
+        "youtube-video-infrastructure",
+        "netflix-shot-based-encoding"
+      ],
+      "description": "一个从专用芯片和数据中心调度切入，一个从镜头级压缩策略切入。"
+    },
+    {
+      "id": "storage-reliability",
+      "category": "storage",
+      "title": "存储系统：可靠性与成本",
+      "case_ids": [
+        "dropbox-magic-pocket",
+        "google-file-system"
+      ],
+      "description": "相似的容错诉求，不同年代与工作负载下的设计假设。"
+    },
+    {
+      "id": "delivery-control",
+      "category": "release",
+      "title": "发布控制：配置与实验",
+      "case_ids": [
+        "uber-flipr",
+        "uber-ab-platform",
+        "spotify-two-stacks"
+      ],
+      "description": "配置分发、实验评估与个性化系统，到底该合并还是分开？"
+    },
+    {
+      "id": "recommendation-feedback",
+      "category": "recommendation",
+      "title": "推荐系统：在线反馈与排序",
+      "case_ids": [
+        "instagram-recommendations-1000",
+        "instagram-explore-ranking",
+        "bytedance-monolith",
+        "spotify-generative-inference"
+      ],
+      "description": "多阶段召回、在线学习与生成式推理，各自如何分配计算预算？"
+    },
+    {
+      "id": "agent-code-platforms",
+      "category": "developer",
+      "title": "Agent 时代的代码平台：两种发展路线",
+      "case_ids": [
+        "anthropic-source-control",
+        "github-git-agent-scale"
+      ],
+      "description": "Scion 选择集中式变化集，GitHub 在兼容 Git 的前提下重构基础设施；都是应对 Agent 提交负载的公开架构设计。"
+    },
+    {
+      "id": "object-storage-layout",
+      "category": "storage",
+      "title": "海量对象：块存储还是容器化小文件",
+      "case_ids": [
+        "dropbox-magic-pocket",
+        "meta-haystack-photos",
+        "meta-tao-social-graph"
+      ],
+      "description": "不同数据形态下，内容布局、元数据开销和访问局部性怎样改变系统结构？"
+    },
+    {
+      "id": "experimentation-boundaries",
+      "category": "release",
+      "title": "实验平台的职责边界",
+      "case_ids": [
+        "uber-ab-platform",
+        "spotify-experimentation-platform",
+        "spotify-two-stacks"
+      ],
+      "description": "从开关到配置属性，从实验指标到个性化服务，比较组织职责与平台边界。"
+    },
+    {
+      "id": "video-cache-cost",
+      "category": "video",
+      "title": "视频缓存与计算成本",
+      "case_ids": [
+        "netflix-open-connect-popularity",
+        "youtube-video-infrastructure",
+        "netflix-shot-based-encoding"
+      ],
+      "description": "编码效率、边缘缓存命中率与基础设施成本之间的不同切入点。"
+    }
+  ],
+  "organizations": [
+    {
+      "id": "anthropic",
+      "name": "Anthropic"
+    },
+    {
+      "id": "bytedance",
+      "name": "ByteDance"
+    },
+    {
+      "id": "cloudflare",
+      "name": "Cloudflare"
+    },
+    {
+      "id": "discord",
+      "name": "Discord"
+    },
+    {
+      "id": "dropbox",
+      "name": "Dropbox"
+    },
+    {
+      "id": "figma",
+      "name": "Figma"
+    },
+    {
+      "id": "github",
+      "name": "GitHub"
+    },
+    {
+      "id": "google",
+      "name": "Google"
+    },
+    {
+      "id": "meta",
+      "name": "Meta"
+    },
+    {
+      "id": "netflix",
+      "name": "Netflix"
+    },
+    {
+      "id": "openai",
+      "name": "OpenAI"
+    },
+    {
+      "id": "spotify",
+      "name": "Spotify"
+    },
+    {
+      "id": "stripe",
+      "name": "Stripe"
+    },
+    {
+      "id": "tencent",
+      "name": "Tencent"
+    },
+    {
+      "id": "uber",
+      "name": "Uber"
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube"
+    }
+  ]
+}

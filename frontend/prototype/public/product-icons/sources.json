@@ -1,0 +1,163 @@
+{
+  "purpose": "Editorial product identification in Plica. Logos retain their respective trademark rights; upstream vector licenses are not brand endorsement.",
+  "retrieved": "2026-10-23",
+  "assets": [
+    {
+      "name": "dropbox",
+      "file": "dropbox.svg",
+      "source": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@13.21.0/icons/dropbox.svg",
+      "upstreamBrandSource": "https://www.dropbox.com/branding",
+      "license": "CC0-1.0",
+      "sha256": "7dd6ef19801075e4132c8bee85c914da218248bf2fdc53a1c0ae5899ac9c151e"
+    },
+    {
+      "name": "youtube",
+      "file": "youtube.svg",
+      "source": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@13.21.0/icons/youtube.svg",
+      "upstreamBrandSource": "https://www.youtube.com/howyoutubeworks/resources/brand-resources/#logos-icons-and-colors",
+      "license": "CC0-1.0",
+      "sha256": "7f5156448b9c1b65156e34e4443f0eff8b85f5afa783fc8a8d09f49380fed424"
+    },
+    {
+      "name": "netflix",
+      "file": "netflix.svg",
+      "source": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@13.21.0/icons/netflix.svg",
+      "upstreamBrandSource": "https://brand.netflix.com/en/assets/brand-symbol",
+      "license": "CC0-1.0",
+      "sha256": "5c82ab5ed6f08477b25d6dd2aa430a423e0d84adafa9be8e24ca08bd723e0e95"
+    },
+    {
+      "name": "figma",
+      "file": "figma.svg",
+      "source": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@13.21.0/icons/figma.svg",
+      "upstreamBrandSource": "https://www.figma.com/using-the-figma-brand/",
+      "license": "CC0-1.0",
+      "sha256": "b9171110637bb953781a04044d9957478ae84f6a7ac597a25c0bfdfb3292a45e"
+    },
+    {
+      "name": "discord",
+      "file": "discord.svg",
+      "source": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@13.21.0/icons/discord.svg",
+      "upstreamBrandSource": "https://discord.com/branding",
+      "license": "CC0-1.0",
+      "sha256": "79a8105c2fc15d8caa6ee7b87b58597432e171386d22a2cc2237f0eb3bbbe7dd"
+    },
+    {
+      "name": "uber",
+      "file": "uber.svg",
+      "source": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@13.21.0/icons/uber.svg",
+      "upstreamBrandSource": "https://assets.uber.com/d/k4nuxdZ8MC7E/logos/collection/151",
+      "license": "CC0-1.0",
+      "sha256": "29eaa0ec30571c0694e7e42ab34816adb5955e414248c240b2b82dee3d8b75ca"
+    },
+    {
+      "name": "instagram",
+      "file": "instagram.svg",
+      "source": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@13.21.0/icons/instagram.svg",
+      "upstreamBrandSource": "https://about.meta.com/brand/resources/instagram",
+      "license": "CC0-1.0",
+      "sha256": "1060526807a40fb7c1fcd06fa720865d295a9dc58f409660c716ec16bf06421e"
+    },
+    {
+      "name": "spotify",
+      "file": "spotify.svg",
+      "source": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@13.21.0/icons/spotify.svg",
+      "upstreamBrandSource": "https://developer.spotify.com/documentation/general/design-and-branding/#using-our-logo",
+      "license": "CC0-1.0",
+      "sha256": "366bb7f8086dd7c7e0d9edc4c54b0b47fd3b003f6d10a04d83c4ccff8e6f4bf5"
+    },
+    {
+      "name": "byteplus",
+      "file": "byteplus.svg",
+      "source": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@13.21.0/icons/bytedance.svg",
+      "upstreamBrandSource": "https://www.bytedance.com",
+      "license": "CC0-1.0",
+      "sha256": "09e1b96b8565257e80903215cc01d8ce201a4c570fe8e0094ca8af096a5bb2ad"
+    },
+    {
+      "name": "google-cloud",
+      "file": "google-cloud.svg",
+      "source": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@13.21.0/icons/googlecloud.svg",
+      "upstreamBrandSource": "https://cloud.google.com",
+      "license": "CC0-1.0",
+      "sha256": "eb848405c6a1ed56510e7cc88ffe6e2e12cd8331be4b0c8c31048d0b0e6d53a9"
+    },
+    {
+      "name": "anthropic",
+      "file": "anthropic.svg",
+      "source": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@13.21.0/icons/anthropic.svg",
+      "upstreamBrandSource": "https://www.anthropic.com",
+      "license": "CC0-1.0",
+      "sha256": "1c10881e4729127e1a86e569613d786240acae13eacfa01860be065b66260e36"
+    },
+    {
+      "name": "facebook",
+      "file": "facebook.svg",
+      "source": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@13.21.0/icons/facebook.svg",
+      "upstreamBrandSource": "https://about.meta.com/brand/resources/facebook/logo",
+      "license": "CC0-1.0",
+      "sha256": "daf5a4fff42cb6b9868b7eb61a9f742663cc128d929d37c85873b8b10eaa345a"
+    },
+    {
+      "name": "meta",
+      "file": "meta.svg",
+      "source": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@13.21.0/icons/meta.svg",
+      "upstreamBrandSource": "https://www.meta.com",
+      "license": "CC0-1.0",
+      "sha256": "18e15e0cd6ef858aa8b054db472f83870e5e2ef15f9b19554480c89c93c264e1"
+    },
+    {
+      "name": "wechat",
+      "file": "wechat.svg",
+      "source": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@13.21.0/icons/wechat.svg",
+      "upstreamBrandSource": "https://wechat.design/tool/brand",
+      "license": "CC0-1.0",
+      "sha256": "439de170dff232935f08357fbfb852bb302545d6125861ed6074fe6237b3f912"
+    },
+    {
+      "name": "github",
+      "file": "github.svg",
+      "source": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@13.21.0/icons/github.svg",
+      "upstreamBrandSource": "https://github.com/logos",
+      "license": "CC0-1.0",
+      "sha256": "476ba7aa67b86da7d6e7567b08a4bf0eb1a2fd28da5fc243f8ee39a2f1ea6773"
+    },
+    {
+      "name": "stripe",
+      "file": "stripe.svg",
+      "source": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@13.21.0/icons/stripe.svg",
+      "upstreamBrandSource": "https://stripe.com/newsroom/information",
+      "license": "CC0-1.0",
+      "sha256": "7576775bf9915b696bbb9162268f5c56147d2b4221a76ac6a9ca92835239b7e9"
+    },
+    {
+      "name": "cloudflare",
+      "file": "cloudflare.svg",
+      "source": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@13.21.0/icons/cloudflare.svg",
+      "upstreamBrandSource": "https://www.cloudflare.com/logo/",
+      "license": "CC0-1.0",
+      "sha256": "32876bda81542203316d67b9623818ac60986897cac79f70e03e8f31f7b7f160"
+    },
+    {
+      "name": "codex",
+      "file": "codex.svg",
+      "source": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@master/packages/static-svg/icons/codex-color.svg",
+      "license": "MIT",
+      "sha256": "4a2f43ce46b5b6e3722c95088f88d26ef91e6a8c2e598e70642a1c54367386e4"
+    },
+    {
+      "name": "chatgpt",
+      "file": "chatgpt.svg",
+      "source": "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@master/packages/static-svg/icons/openai.svg",
+      "license": "MIT",
+      "sha256": "76f621128c2f9b530c8315eb11b9b6c44cbc75446fb260a2c35483f40bd0f780"
+    },
+    {
+      "name": "spanner",
+      "file": "spanner.svg",
+      "source": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@master/icons/googlecloudspanner.svg",
+      "license": "CC0-1.0",
+      "sha256": "4b0deca24beb89f399a4da6648f6ad75e07d9ed4a3765f3daf67eb5032af0c74"
+    }
+  ]
+}

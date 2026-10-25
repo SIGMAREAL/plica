@@ -1,0 +1,88 @@
+[
+  {
+    "id": "video-processing",
+    "category": "video",
+    "title": "视频处理：转码效率与画质",
+    "case_ids": [
+      "youtube-video-infrastructure",
+      "netflix-shot-based-encoding"
+    ],
+    "description": "一个从专用芯片和数据中心调度切入，一个从镜头级压缩策略切入。"
+  },
+  {
+    "id": "storage-reliability",
+    "category": "storage",
+    "title": "存储系统：可靠性与成本",
+    "case_ids": [
+      "dropbox-magic-pocket",
+      "google-file-system"
+    ],
+    "description": "相似的容错诉求，不同年代与工作负载下的设计假设。"
+  },
+  {
+    "id": "delivery-control",
+    "category": "release",
+    "title": "发布控制：配置与实验",
+    "case_ids": [
+      "uber-flipr",
+      "uber-ab-platform",
+      "spotify-two-stacks"
+    ],
+    "description": "配置分发、实验评估与个性化系统，到底该合并还是分开？"
+  },
+  {
+    "id": "recommendation-feedback",
+    "category": "recommendation",
+    "title": "推荐系统：在线反馈与排序",
+    "case_ids": [
+      "instagram-recommendations-1000",
+      "instagram-explore-ranking",
+      "bytedance-monolith",
+      "spotify-generative-inference"
+    ],
+    "description": "多阶段召回、在线学习与生成式推理，各自如何分配计算预算？"
+  },
+  {
+    "id": "agent-code-platforms",
+    "category": "developer",
+    "title": "Agent 时代的代码平台：两种发展路线",
+    "case_ids": [
+      "anthropic-source-control",
+      "github-git-agent-scale"
+    ],
+    "description": "Scion 选择集中式变化集，GitHub 在兼容 Git 的前提下重构基础设施；都是应对 Agent 提交负载的公开架构设计。"
+  },
+  {
+    "id": "object-storage-layout",
+    "category": "storage",
+    "title": "海量对象：块存储还是容器化小文件",
+    "case_ids": [
+      "dropbox-magic-pocket",
+      "meta-haystack-photos",
+      "meta-tao-social-graph"
+    ],
+    "description": "不同数据形态下，内容布局、元数据开销和访问局部性怎样改变系统结构？"
+  },
+  {
+    "id": "experimentation-boundaries",
+    "category": "release",
+    "title": "实验平台的职责边界",
+    "case_ids": [
+      "uber-ab-platform",
+      "spotify-experimentation-platform",
+      "spotify-two-stacks"
+    ],
+    "description": "从开关到配置属性，从实验指标到个性化服务，比较组织职责与平台边界。"
+  },
+  {
+    "id": "video-cache-cost",
+    "category": "video",
+    "title": "视频缓存与计算成本",
+    "case_ids": [
+      "netflix-open-connect-popularity",
+      "youtube-video-infrastructure",
+      "netflix-shot-based-encoding"
+    ],
+    "description": "编码效率、边缘缓存命中率与基础设施成本之间的不同切入点。"
+  }
+]

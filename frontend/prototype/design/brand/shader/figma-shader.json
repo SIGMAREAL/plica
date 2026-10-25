@@ -1,0 +1,14 @@
+{
+  "name": "Plica · Folded light",
+  "kind": "fill",
+  "id": "d0cba5ee-4d45-4a62-9651-4833ed328097",
+  "version": "35975deafbea0875a49b19f462315f90ab0980ba",
+  "fileKey": "HN365jMHk14lQd2YAUSn4y",
+  "page": {"id": "71:2636", "name": "04 · Brand / Plica"},
+  "boardId": "71:2637",
+  "heroId": "71:2641",
+  "createdNodeIds": ["71:2636","71:2637","71:2638","71:2639","71:2640","71:2641","71:2642","71:2643","71:2644","71:2645","71:2646","71:2647","71:2648","71:2649","71:2650"],
+  "controls": ["tint", "rotation", "roughness", "silver", "scale"],
+  "status": "Figma shader draft; website icon unchanged",
+  "validation": "Shader build passed; native SHADER fills rendered and visually checked on light and dark backgrounds, including 128, 64 and 32 pixel containers."
+}

@@ -9,3 +9,9 @@ venv/
 artifacts/
 test-results/
 playwright-report/
+backend/dist/
+frontend/dist/
+frontend/prototype/node_modules/
+frontend/prototype/dist/
+frontend/prototype/release/
+frontend/prototype/*.tsbuildinfo

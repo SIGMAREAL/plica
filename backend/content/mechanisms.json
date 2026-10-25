@@ -1,0 +1,62 @@
+[
+  {
+    "id": "storage",
+    "label": "存储与数据",
+    "english": "Storage & data",
+    "description": "对象存储 / 同步 / 数据库"
+  },
+  {
+    "id": "video",
+    "label": "音视频系统",
+    "english": "Video & media",
+    "description": "转码 / 带宽 / 传输"
+  },
+  {
+    "id": "recommendation",
+    "label": "推荐与个性化",
+    "english": "Recommendation",
+    "description": "召回 / 排序 / 在线学习"
+  },
+  {
+    "id": "collaboration",
+    "label": "实时协作与通信",
+    "english": "Collaboration",
+    "description": "同步 / 消息 / 冲突处理"
+  },
+  {
+    "id": "release",
+    "label": "发布、实验与交付",
+    "english": "Delivery & experiments",
+    "description": "CI/CD / Feature Flags / A/B"
+  },
+  {
+    "id": "search",
+    "label": "搜索与索引",
+    "english": "Search & discovery",
+    "description": "检索 / 索引 / 查询延迟"
+  },
+  {
+    "id": "developer",
+    "label": "Agent 与开发平台",
+    "english": "Developer platforms",
+    "description": "Harness / 代码管理 / 验证"
+  },
+  {
+    "id": "runtime",
+    "label": "客户端与运行时",
+    "english": "Client runtime",
+    "description": "小程序 / 沙箱 / 跨端引擎"
+  },
+  {
+    "id": "finance",
+    "label": "支付与账务",
+    "english": "Payments & ledgers",
+    "description": "资金流 / 不可变账本 / 清算"
+  },
+  {
+    "id": "traffic",
+    "label": "边缘流量与可靠性",
+    "english": "Traffic & reliability",
+    "description": "排队 / 限流 / 容量规划"
+  }
+]

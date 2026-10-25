@@ -1,0 +1,19 @@
+const ids=[], changed=[], jobs=[];
+const track=n=>(ids.push(n.id),n);
+await Promise.all([{family:'Inter',style:'Regular'},{family:'Inter',style:'Medium'},{family:'Noto Sans SC',style:'Regular'},{family:'Noto Sans SC',style:'Medium'}].map(f=>figma.loadFontAsync(f)));
+const vars=Object.fromEntries((await figma.variables.getLocalVariablesAsync()).filter(v=>v.name.startsWith('ui/')).map(v=>[v.name,v]));
+const styles=Object.fromEntries((await figma.getLocalTextStylesAsync()).filter(s=>s.name.startsWith('Plica UI/')).map(s=>[s.name,s]));
+const rgb=a=>({r:a[0],g:a[1],b:a[2]});
+function paint(key){return figma.variables.setBoundVariableForPaint({type:'SOLID',color:rgb(source.light.tokens[key]||[0,0,0])},'color',vars['ui/'+key]);}
+function F(name,w,dir='VERTICAL',gap=16,fill='surface'){const n=track(figma.createAutoLayout(dir));n.name=name;n.resize(w,1);n.primaryAxisSizingMode=dir==='VERTICAL'?'AUTO':'FIXED';n.counterAxisSizingMode=dir==='VERTICAL'?'FIXED':'AUTO';n.itemSpacing=gap;n.fills=fill?[paint(fill)]:[];return n;}
+function pad(n,v=24){for(const key of ['paddingTop','paddingBottom','paddingLeft','paddingRight']){n[key]=v;if(vars['ui/space/'+v])n.setBoundVariable(key,vars['ui/space/'+v]);}return n;}
+function T(value,size=14,color='text',w=0,medium=false){const family=/[\u3400-\u9fff]/.test(value)?'Noto Sans SC':'Inter',style=medium?'Medium':'Regular',key='Plica UI/'+family+'/'+size+'/'+style;let ts=styles[key];if(!ts){ts=figma.createTextStyle();ts.name=key;ts.fontName={family,style};ts.fontSize=size;ts.lineHeight={unit:'PIXELS',value:({12:18,14:22,16:26,20:30,24:34,32:42})[size]||size*1.5};styles[key]=ts;}const n=track(figma.createText());n.fontName={family,style};n.characters=value;n.fontSize=size;n.lineHeight=ts.lineHeight;n.fills=[paint(color)];if(w){n.resize(w,1);n.textAutoResize='HEIGHT';}else n.textAutoResize='WIDTH_AND_HEIGHT';jobs.push(n.setTextStyleIdAsync(ts.id));return n;}
+function outline(n){n.strokes=[paint('line')];n.strokeWeight=1;n.cornerRadius=12;n.setBoundVariable('cornerRadius',vars['ui/radius/12']);return n;}
+function rect(w,h,key,r=0){const n=track(figma.createRectangle());n.resize(w,h);n.fills=[paint(key)];n.cornerRadius=r;return n;}
+function C(name,w,h=36,dir='HORIZONTAL'){const n=track(figma.createComponent());n.name=name;n.layoutMode=dir;n.resize(w,h);n.primaryAxisSizingMode='FIXED';n.counterAxisSizingMode='FIXED';n.primaryAxisAlignItems='CENTER';n.counterAxisAlignItems='CENTER';n.itemSpacing=6;n.setBoundVariable('itemSpacing',vars['ui/space/6']);n.cornerRadius=8;n.setBoundVariable('cornerRadius',vars['ui/radius/8']);n.fills=[paint('surface')];return n;}
+function icon(svg,size=16){const n=track(figma.createNodeFromSvg(svg.replaceAll('currentColor','#171717')));n.findAll(()=>true).forEach(c=>ids.push(c.id));n.resize(size,size);return n;}
+// Variant grid follows createComponentWithVariants.js: combine, then position every variant.
+function family(name,nodes,x,y,cols=5,cw=160,ch=76){const set=track(figma.combineAsVariants(nodes,page));set.name='Plica UI / '+name;set.description='Kumo 2.15.0 source: frontend/prototype/src/ui/index.ts. Editable component states; live interactions in components.html.';set.fills=[paint('surface')];set.cornerRadius=12;set.strokes=[paint('line')];nodes.forEach((n,i)=>{n.x=32+(i%cols)*cw;n.y=48+Math.floor(i/cols)*ch;});set.resize(Math.min(cols,nodes.length)*cw+64,Math.ceil(nodes.length/cols)*ch+80);set.x=x;set.y=y;return set;}
+function labelProperty(set,texts,defaultValue='探索案例'){const key=set.addComponentProperty('Label','TEXT',defaultValue);texts.forEach(n=>n.componentPropertyReferences={...n.componentPropertyReferences,characters:key});}
+function title(value,x,y){const n=T(value,20,'text',1000,true);page.appendChild(n);n.x=x;n.y=y;return n;}
+async function done(extra){await Promise.all(jobs);return {createdNodeIds:ids,mutatedNodeIds:changed,...extra};}

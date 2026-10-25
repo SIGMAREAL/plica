@@ -1,0 +1,152 @@
+[
+  {
+    "id": "dropbox",
+    "name": "Dropbox",
+    "description": "文件存储、同步与版本演进"
+  },
+  {
+    "id": "youtube",
+    "name": "YouTube",
+    "description": "视频转码与媒体基础设施"
+  },
+  {
+    "id": "netflix",
+    "name": "Netflix",
+    "description": "流媒体编码与播放质量"
+  },
+  {
+    "id": "figma",
+    "name": "Figma",
+    "description": "多人编辑与实时同步"
+  },
+  {
+    "id": "discord",
+    "name": "Discord",
+    "description": "海量消息存储与搜索"
+  },
+  {
+    "id": "uber",
+    "name": "Uber",
+    "description": "实验平台、Feature Flags 与发布"
+  },
+  {
+    "id": "instagram",
+    "name": "Instagram",
+    "description": "多阶段推荐系统与模型服务"
+  },
+  {
+    "id": "spotify",
+    "name": "Spotify",
+    "description": "个性化与实验系统"
+  },
+  {
+    "id": "byteplus-recommend",
+    "name": "BytePlus Recommend",
+    "description": "实时推荐模型与在线训练"
+  },
+  {
+    "id": "google-spanner",
+    "name": "Google Spanner",
+    "description": "全球一致的分布式数据库"
+  },
+  {
+    "id": "google-infrastructure",
+    "name": "Google Infrastructure",
+    "description": "文件系统与容错机制"
+  },
+  {
+    "id": "openai-codex",
+    "name": "OpenAI Codex",
+    "description": "Agent 编程与工程 Harness"
+  },
+  {
+    "id": "anthropic-engineering",
+    "name": "Anthropic Engineering",
+    "description": "AI 编程时代的版本控制"
+  },
+  {
+    "id": "facebook",
+    "name": "Facebook",
+    "description": "社交图服务与读性能"
+  },
+  {
+    "id": "facebook-photos",
+    "name": "Facebook Photos",
+    "description": "图片元数据与对象存储"
+  },
+  {
+    "id": "meta-data-infrastructure",
+    "name": "Meta Data Infrastructure",
+    "description": "数据摄入及大规模迁移"
+  },
+  {
+    "id": "wechat-mini-programs",
+    "name": "WeChat Mini Programs",
+    "description": "小程序运行时与 JSBridge"
+  },
+  {
+    "id": "github",
+    "name": "GitHub",
+    "description": "Agent 规模的 Git 承载"
+  },
+  {
+    "id": "github-api",
+    "name": "GitHub API",
+    "description": "聚合接口与查询效率"
+  },
+  {
+    "id": "stripe-billing",
+    "name": "Stripe Billing",
+    "description": "在线无停机迁移"
+  },
+  {
+    "id": "stripe-payments",
+    "name": "Stripe Payments",
+    "description": "资金流水与数据质量"
+  },
+  {
+    "id": "cloudflare-waiting-room",
+    "name": "Cloudflare Waiting Room",
+    "description": "流量准入和排队控制"
+  },
+  {
+    "id": "telegram",
+    "name": "Telegram",
+    "description": "即时通讯、群组与频道"
+  },
+  {
+    "id": "arc",
+    "name": "Arc",
+    "description": "空间与侧边栏标签管理"
+  },
+  {
+    "id": "dia",
+    "name": "Dia",
+    "description": "结合 AI 的浏览器"
+  },
+  {
+    "id": "netease-cloud-music",
+    "name": "NetEase Cloud Music",
+    "description": "网易云音乐 · 音乐播放与歌单"
+  },
+  {
+    "id": "zen",
+    "name": "Zen",
+    "description": "工作区与分屏浏览"
+  },
+  {
+    "id": "zed",
+    "name": "Zed",
+    "description": "代码编辑与实时协作"
+  },
+  {
+    "id": "threads",
+    "name": "Threads",
+    "description": "文字分享与社交讨论"
+  },
+  {
+    "id": "x-twitter",
+    "name": "X (Twitter)",
+    "description": "实时信息与社交讨论"
+  }
+]

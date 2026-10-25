@@ -1,0 +1,348 @@
+{
+  "fileKey": "HN365jMHk14lQd2YAUSn4y",
+  "sessionId": "0f952bf9-a820-46aa-8d82-0ad214897b2a",
+  "updated": "2026-10-24",
+  "scope": "Kumo redesign with original feature parity; desktop and mobile",
+  "pages": {
+    "desktop": "7:194",
+    "mobile": "7:195",
+    "components": "15:2"
+  },
+  "components": {
+    "search": "25:14",
+    "theme": "25:17",
+    "menu": "25:20",
+    "nav0": "25:23",
+    "nav1": "25:26",
+    "nav2": "25:29",
+    "nav3": "25:32",
+    "nav4": "25:35",
+    "nav5": "25:38",
+    "sidebar": "25:41",
+    "topbar": "25:100",
+    "mobileTopbar": "25:108",
+    "explorationCard": "32:781",
+    "explorationEntry": "37:2482",
+    "readingQuestion": "36:2364",
+    "productCard": "76:2782",
+    "productCardReview": "76:2783"
+  },
+  "frames": [
+    {
+      "id": "9:65",
+      "name": "01 · Discover / 1440",
+      "width": 1440,
+      "height": 2164,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "9:290",
+      "name": "02 · Case library / 1440",
+      "width": 1440,
+      "height": 1616,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "9:408",
+      "name": "03 · Case reading / 1440",
+      "width": 1440,
+      "height": 2029,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "9:511",
+      "name": "Graph / systems / 1440",
+      "width": 1440,
+      "height": 1805,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "9:639",
+      "name": "05 · Glossary / 1440",
+      "width": 1440,
+      "height": 1262,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "9:736",
+      "name": "06 · Research / 1440",
+      "width": 1440,
+      "height": 1341,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "9:813",
+      "name": "07 · Comparisons / 1440",
+      "width": 1440,
+      "height": 1207,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "26:1059",
+      "name": "08 · Term detail / 1440",
+      "width": 1440,
+      "height": 1304,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "26:1172",
+      "name": "09 · Paper detail / 1440",
+      "width": 1440,
+      "height": 1000,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "33:1173",
+      "name": "Index / products / 1440",
+      "width": 1440,
+      "height": 4620,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "33:1478",
+      "name": "Detail / products / 1440",
+      "width": 1440,
+      "height": 1195,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "33:1617",
+      "name": "Index / companies / 1440",
+      "width": 1440,
+      "height": 1870,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "33:1864",
+      "name": "Detail / companies / 1440",
+      "width": 1440,
+      "height": 1019,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "33:1998",
+      "name": "Index / systems / 1440",
+      "width": 1440,
+      "height": 1382,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "33:2187",
+      "name": "Detail / systems / 1440",
+      "width": 1440,
+      "height": 2187,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "33:2379",
+      "name": "Info / about / 1440",
+      "width": 1440,
+      "height": 1000,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "33:2480",
+      "name": "Info / sponsor / 1440",
+      "width": 1440,
+      "height": 1000,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "33:2586",
+      "name": "Info / skill / 1440",
+      "width": 1440,
+      "height": 1052,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "33:2709",
+      "name": "Graph / products / 1440",
+      "width": 1440,
+      "height": 1580,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "33:2896",
+      "name": "Graph / companies / 1440",
+      "width": 1440,
+      "height": 1356,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "33:3069",
+      "name": "Graph / terms / 1440",
+      "width": 1440,
+      "height": 1532,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "36:2387",
+      "name": "Reading question preview / 1440",
+      "width": 1440,
+      "height": 1000,
+      "intentionalViewportClip": true
+    },
+    {
+      "id": "9:892",
+      "name": "01 · Discover / 390",
+      "width": 390,
+      "height": 3357,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "9:1084",
+      "name": "02 · Case library / 390",
+      "width": 390,
+      "height": 1614,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "9:1164",
+      "name": "03 · Case reading / 390",
+      "width": 390,
+      "height": 2212,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "9:1248",
+      "name": "Graph / systems / 390",
+      "width": 390,
+      "height": 1832,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "27:1165",
+      "name": "05 · Glossary / 390",
+      "width": 390,
+      "height": 1237,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "27:1225",
+      "name": "06 · Research / 390",
+      "width": 390,
+      "height": 1547,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "27:1277",
+      "name": "07 · Comparisons / 390",
+      "width": 390,
+      "height": 1892,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "27:1354",
+      "name": "08 · Term detail / 390",
+      "width": 390,
+      "height": 1573,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "27:1420",
+      "name": "09 · Paper detail / 390",
+      "width": 390,
+      "height": 1180,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "34:2839",
+      "name": "Index / products / 390",
+      "width": 390,
+      "height": 13072,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "34:3111",
+      "name": "Detail / products / 390",
+      "width": 390,
+      "height": 1478,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "34:3189",
+      "name": "Index / companies / 390",
+      "width": 390,
+      "height": 4273,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "34:3395",
+      "name": "Detail / companies / 390",
+      "width": 390,
+      "height": 1233,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "34:3468",
+      "name": "Index / systems / 390",
+      "width": 390,
+      "height": 2814,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "34:3608",
+      "name": "Detail / systems / 390",
+      "width": 390,
+      "height": 2896,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "34:3739",
+      "name": "Info / about / 390",
+      "width": 390,
+      "height": 844,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "34:3779",
+      "name": "Info / sponsor / 390",
+      "width": 390,
+      "height": 846,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "34:3824",
+      "name": "Info / skill / 390",
+      "width": 390,
+      "height": 1110,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "34:3886",
+      "name": "Graph / products / 390",
+      "width": 390,
+      "height": 1592,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "34:3984",
+      "name": "Graph / companies / 390",
+      "width": 390,
+      "height": 1522,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "34:4078",
+      "name": "Graph / terms / 390",
+      "width": 390,
+      "height": 1522,
+      "intentionalViewportClip": false
+    },
+    {
+      "id": "36:3631",
+      "name": "Reading question preview / 390",
+      "width": 390,
+      "height": 844,
+      "intentionalViewportClip": true
+    }
+  ],
+  "notes": [
+    "44 editable frames; no complete-UI screenshots. Product cards use verified 1024px original app artwork as native image fills.",
+    "Indexes show all records; case lists and detail screens show representative catalog records.",
+    "Existing Archive page was removed; no Archive page is used.",
+    "Hairline explicitly deferred; no Hairline figure or runtime dependency."
+  ],
+  "navigationShell": "navigation-shell-nodes.json",
+  "currentNavigationSync": "navigation-sync-2026-10-24.json"
+}
