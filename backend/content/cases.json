@@ -850,5 +850,33 @@
     "readTime": "8 min",
     "type": "工程博客",
     "featured": false
+  },
+  {
+    "slug": "lauren-tan-2500-prs",
+    "company": "Lauren Tan",
+    "product": "pstack",
+    "category": "developer",
+    "title": "How I Shipped 2,500 PRs Last Month to Production",
+    "date": "2026-09-21",
+    "source": "https://x.com/poteto/status/2102050467505430555",
+    "question": "单人如何在大量并行 Coding Agent 工作中维持可核验的生产交付，而非只追求 PR 数量？",
+    "summary": "Lauren Tan 通过一场公开演讲分享其 Agent 软件开发工作流：先建立可实际驱动产品的验证能力、明确功能与验收证据，再扩大并行任务规模。标题中的 2,500 PR/月属于作者自述，不能等同于独立功能数量或经外部核验的质量指标。",
+    "why": "以一线工程实践讨论 Agent 开发的可验证性、工作流编排和信任边界；相较只统计提交量，重点是让代码改动能够被复现、观察和审查。可结合作者维护的开源 pstack 实现（https://github.com/cursor/plugins/tree/main/pstack）核对方法与工具。",
+    "points": [
+      "验证优先于并行：让 Agent 启动并操作真实软件，围绕用户路径收集运行结果、日志或截图，而不只是依赖代码检查。",
+      "以 Feature Map 和 Verification Skill 记录功能入口、操作步骤与可观测结果，减少新 Agent 反复摸索产品的成本。",
+      "将实现、验证与交付解耦，用可重复的检查支撑高并发工作；PR 数量不能替代缺陷率、回滚率、审查质量等独立指标。"
+    ],
+    "tradeoff": "扩展 Agent 并行度会增加验证环境隔离、计算费用、冲突处理及误判风险；需要报告真实部署证据与失败案例。演讲为个人工程经验，公开资料不足以独立审计 2,500 PR 的计数与交付质量，也不能推断该流程适用于任何团队。",
+    "mechanisms": [
+      "Agent harness",
+      "Verification Skill",
+      "Feature Map",
+      "Parallel agent workflows"
+    ],
+    "signal": "Agent 工程实践",
+    "readTime": "38 min",
+    "type": "工程演讲（个人实践）",
+    "featured": false
   }
 ]

@@ -84,5 +84,17 @@
       "netflix-shot-based-encoding"
     ],
     "description": "编码效率、边缘缓存命中率与基础设施成本之间的不同切入点。"
+  },
+  {
+    "id": "agent-development-verification",
+    "category": "developer",
+    "title": "Agent 开发的可验证性与基础设施演化",
+    "case_ids": [
+      "openai-harness-engineering",
+      "lauren-tan-2500-prs",
+      "anthropic-source-control",
+      "github-git-agent-scale"
+    ],
+    "description": "OpenAI 与 Lauren Tan 关注 Agent 如何执行、验证和审查工作，Anthropic Scion 与 GitHub 则关注代码变更规模如何冲击存储与合并基础设施。各方公开资料的规模指标和证据边界不同，不构成统一性能排名。"
   }
 ]

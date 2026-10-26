@@ -148,5 +148,10 @@
     "id": "x-twitter",
     "name": "X (Twitter)",
     "description": "实时信息与社交讨论"
+  },
+  {
+    "id": "pstack",
+    "name": "pstack",
+    "description": "Lauren Tan 维护的 Agent 软件工程技能与验证工作流集合；这里收录的是作者工程演讲，不代表某家公司当前的完整内部架构"
   }
 ]

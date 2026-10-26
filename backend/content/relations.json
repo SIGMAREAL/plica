@@ -298,5 +298,11 @@
     "case": "github-star-history-api",
     "relation": "explains_term",
     "review_status": "editorial"
+  },
+  {
+    "term": "harness",
+    "case": "lauren-tan-2500-prs",
+    "relation": "explains_term",
+    "review_status": "editorial"
   }
 ]

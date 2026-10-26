@@ -49,5 +49,22 @@
     ],
     "related_case": "google-file-system",
     "status": "理论比较；关联 GFS 仅用于同领域延伸阅读，不代表 GFS 使用 Raft 或 Paxos"
+  },
+  {
+    "id": "ai-generated-language-intelligibility",
+    "title": "Why is AI-generated language so hard to understand?",
+    "authors": "Thomas Hikaru Clark, Matias B. Martin, Kyle Mahowald",
+    "year": "2026",
+    "arxiv": "2610.29162",
+    "category": "developer",
+    "question": "为什么高能力语言模型的输出，会过度使用与人类理解困难相关的语言结构？",
+    "summary": "研究比较多种模型在聊天、代码与作文场景的英文输出，观察到部分复杂语言结构相对人类文本和语义接近的往返翻译改写被过度使用。作者提出任务优化与信息密度压力可能和人类可理解性存在张力，并通过对较小模型施加长度惩罚给出概念验证；尚不能由此归因所有前沿模型的训练过程。",
+    "takeaways": [
+      "不同模型在低频 n-gram、长句法依赖、名词堆叠及其他语言特征上的表现不同；复杂特征是阅读负担的间接指标，而非本实验直接测量的人类理解成绩。",
+      "在受控训练中施加长度惩罚可改变部分句法选择，这支持信息压缩压力的可能作用，但不是对前沿模型实际训练机制的因果证明。",
+      "Agent 工程可以将任务正确性与面向人类的解释质量分开评估；与 pstack 工程演讲的关联仅为审查与沟通主题，不表示演讲实践使用了该论文。"
+    ],
+    "related_case": "lauren-tan-2500-prs",
+    "status": "2026-10-21 提交的 arXiv v1 预印本；主要研究英文语言结构，缺少直接的大规模人类阅读理解实验。与 Lauren Tan 工程演讲仅为主题关联，不代表生产应用或实测解决效果。"
   }
 ]
