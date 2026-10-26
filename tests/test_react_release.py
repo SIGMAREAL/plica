@@ -25,7 +25,13 @@ class ReactReleaseTests(unittest.TestCase):
         self.assertEqual(json.loads((release / 'release.json').read_text())['revision'],
                          'release-test')
         catalog = json.loads((release / 'api/v1/catalog.json').read_text())
-        self.assertEqual(len(catalog['products']), 30)
+        source_products = json.loads((ROOT / 'backend/content/products.json').read_text())
+        self.assertEqual({p['id'] for p in catalog['products']},
+                         {p['id'] for p in source_products},
+                         'The public catalog should export all indexed products')
+        self.assertIn('pstack', {p['id'] for p in catalog['products']})
+        self.assertIn('lauren-tan-2500-prs', {c['slug'] for c in catalog['cases']})
+        self.assertIn('2610.29162', {p['arxiv'] for p in catalog['papers']})
         self.assertEqual((release / 'skill/plica-architecture/SKILL.md').read_bytes(),
                          (ROOT / 'backend/skills/plica-architecture/SKILL.md').read_bytes())
         self.assertFalse((release / 'backend').exists())
