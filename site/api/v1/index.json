@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "edition": "2026-10-19-v1.2",
+  "edition": "2026-10-26-v1.3",
   "relations": [
     {
       "term": "feature-flags",
@@ -299,6 +299,12 @@
     {
       "term": "aggregation-api",
       "case": "github-star-history-api",
+      "relation": "explains_term",
+      "review_status": "editorial"
+    },
+    {
+      "term": "harness",
+      "case": "lauren-tan-2500-prs",
       "relation": "explains_term",
       "review_status": "editorial"
     }
@@ -926,6 +932,26 @@
       "term_ids": [
         "aggregation-api"
       ]
+    },
+    {
+      "id": "lauren-tan-2500-prs",
+      "title": "How I Shipped 2,500 PRs Last Month to Production",
+      "question": "单人如何在大量并行 Coding Agent 工作中维持可核验的生产交付，而非只追求 PR 数量？",
+      "source": "https://x.com/poteto/status/2102050467505430555",
+      "company": "Lauren Tan",
+      "product": "pstack",
+      "category": "developer",
+      "date": "2026-09-21",
+      "editorial_summary": "Lauren Tan 通过一场公开演讲分享其 Agent 软件开发工作流：先建立可实际驱动产品的验证能力、明确功能与验收证据，再扩大并行任务规模。标题中的 2,500 PR/月属于作者自述，不能等同于独立功能数量或经外部核验的质量指标。",
+      "mechanisms": [
+        "Agent harness",
+        "Verification Skill",
+        "Feature Map",
+        "Parallel agent workflows"
+      ],
+      "term_ids": [
+        "harness"
+      ]
     }
   ],
   "papers": [
@@ -952,6 +978,14 @@
       "source": "https://arxiv.org/abs/2004.05074",
       "summary": "比较两个经典分布式共识协议，分析领导者选择与日志约束如何影响可理解性和工程实现。",
       "evidence_limit": "理论比较；关联 GFS 仅用于同领域延伸阅读，不代表 GFS 使用 Raft 或 Paxos"
+    },
+    {
+      "id": "ai-generated-language-intelligibility",
+      "title": "Why is AI-generated language so hard to understand?",
+      "arxiv_id": "2610.29162",
+      "source": "https://arxiv.org/abs/2610.29162",
+      "summary": "研究比较多种模型在聊天、代码与作文场景的英文输出，观察到部分复杂语言结构相对人类文本和语义接近的往返翻译改写被过度使用。作者提出任务优化与信息密度压力可能和人类可理解性存在张力，并通过对较小模型施加长度惩罚给出概念验证；尚不能由此归因所有前沿模型的训练过程。",
+      "evidence_limit": "2026-10-21 提交的 arXiv v1 预印本；主要研究英文语言结构，缺少直接的大规模人类阅读理解实验。与 Lauren Tan 工程演讲仅为主题关联，不代表生产应用或实测解决效果。"
     }
   ]
 }
