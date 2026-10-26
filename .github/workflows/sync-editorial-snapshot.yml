@@ -1,0 +1,27 @@
+name: One-time editorial snapshot sync
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sync-editorial-snapshot.yml'
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Regenerate tracked static site from content authority
+        run: python3 build.py
+      - name: Commit generated snapshot
+        run: |
+          git add -- site/
+          if ! git diff --cached --quiet; then
+            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'chore(site): regenerate editorial site snapshots'
+            git push origin HEAD:main
+          fi
